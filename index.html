@@ -1,547 +1,262 @@
-
 <!DOCTYPE html>
 <html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>173 Yağlama | Premium Avto Bakım</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; scroll-behavior: smooth; }
-        body { background-color: #0d0d0d; color: #fff; line-height: 1.6; overflow-x: hidden; padding-bottom: 70px; }
-
-        /* Tətbiq tipli Premium Üst Menyu */
-        header { background: rgba(20, 20, 20, 0.95); backdrop-filter: blur(15px); padding: 15px 20px; border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { background-color: #0d0d0d; color: #fff; line-height: 1.6; overflow-x: hidden; padding-bottom: 85px; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        header { background: rgba(20,20,20,0.95); backdrop-filter: blur(15px); padding: 15px 20px; border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
         .logo { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
-        .logo i { color: #ff9f43; text-shadow: 0 0 10px rgba(255, 159, 67, 0.5); }
+        .logo i { color: #ff9f43; text-shadow: 0 0 10px rgba(255,159,67,0.5); }
         .logo span { color: #ff9f43; }
-
-        .cta-btn { background: linear-gradient(45deg, #ff9f43, #ff7f11); color: #0d0d0d; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 25px; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; }
-        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255, 159, 67, 0.5); color: #fff; }
-
-        /* Mobil Tətbiq Tipli Aşağı Naviqasiya Barı */
-        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(18, 18, 18, 0.95); backdrop-filter: blur(20px); border-top: 1px solid #282828; display: flex; justify-content: space-around; padding: 10px 0; z-index: 100; }
+        .cta-btn { background: linear-gradient(45deg, #ff9f43, #ff7f11); color: #0d0d0d; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 12px; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; font-family: 'Inter', sans-serif; }
+        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255,159,67,0.5); color: #fff; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(18,18,18,0.97); backdrop-filter: blur(20px); border-top: 1px solid #282828; display: flex; justify-content: space-around; padding: 10px 0 12px; z-index: 100; }
         .bottom-nav-item { color: #888; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: 500; transition: 0.3s; cursor: pointer; }
         .bottom-nav-item i { font-size: 20px; margin-bottom: 4px; transition: 0.3s; }
         .bottom-nav-item:hover, .bottom-nav-item.active { color: #ff9f43; }
         .bottom-nav-item:hover i { transform: translateY(-3px); color: #ff9f43; }
-
-        /* Hero Bölməsi */
-        .hero { padding: 120px 20px 60px 20px; text-align: center; background: linear-gradient(rgba(13,13,13,0.8), rgba(13,13,13,0.98)), url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=1200') center/cover; }
-        .hero h1 { font-size: 38px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; }
-        .hero h1 span { color: #ff9f43; text-shadow: 0 0 15px rgba(255, 159, 67, 0.4); }
-        .hero p { font-size: 16px; color: #aaa; margin-bottom: 35px; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .hero .cta-btn { display: inline-flex; padding: 14px 35px; font-size: 16px; margin: 0 auto; }
-
-        /* Sürüşən Brendlər Slider-i */
-        .brand-slider-container { margin: 50px auto 20px auto; overflow: hidden; position: relative; max-width: 1000px; background: rgba(22, 22, 22, 0.5); padding: 20px 0; border-radius: 12px; border: 1px solid #1f1f1f; }
+        .whatsapp-float { position: fixed; bottom: 88px; right: 18px; z-index: 99; background: #25D366; color: #fff; width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 20px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.12); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+        .hero { position: relative; padding: 110px 20px 70px 20px; text-align: center; overflow: hidden; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, #0d0d0d 0%, #1a1200 50%, #0d0d0d 100%); }
+        #hero-canvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+        .hero-grid { position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: linear-gradient(rgba(255,159,67,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,159,67,0.04) 1px, transparent 1px); background-size: 55px 55px; }
+        .hero-content { position: relative; z-index: 3; max-width: 750px; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #ff9f43; margin-bottom: 20px; }
+        .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 28px; height: 2px; background: #ff9f43; }
+        .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(58px, 13vw, 110px); line-height: 0.93; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 22px; color: #fff; }
+        .hero h1 span { color: #ff9f43; text-shadow: 0 0 40px rgba(255,159,67,0.35); }
+        .hero p { font-size: 16px; color: #999; margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+        .hero .cta-btn { display: inline-flex; padding: 15px 36px; font-size: 15px; margin: 0 auto; border-radius: 12px; box-shadow: 0 0 28px rgba(255,159,67,0.3); }
+        .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; justify-content: center; margin-top: 56px; padding-top: 36px; border-top: 1px solid #2a2a2a; position: relative; z-index: 3; }
+        .hero-stat { text-align: center; }
+        .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 46px; line-height: 1; color: #fff; }
+        .hero-stat-num span { color: #ff9f43; }
+        .hero-stat-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #666; margin-top: 4px; }
+        .brand-slider-container { margin: 50px auto 20px auto; overflow: hidden; position: relative; max-width: 1000px; background: rgba(22,22,22,0.6); padding: 20px 0; border-radius: 12px; border: 1px solid #1f1f1f; z-index: 3; }
         .brand-slider-title { text-align: center; font-size: 12px; margin-bottom: 15px; color: #888; letter-spacing: 2px; text-transform: uppercase; }
         .slider-track { display: flex; width: calc(180px * 12); animation: scroll 20s linear infinite; align-items: center; }
         .slide { width: 180px; flex-shrink: 0; text-align: center; font-weight: 800; font-size: 15px; color: #fff; opacity: 0.4; transition: 0.3s; letter-spacing: 1px; }
         .slide:hover { opacity: 1; color: #ff9f43; }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-180px * 6)); }
-        }
-
-        /* Vitrin Xidmətlər Bölməsi */
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-180px * 6)); } }
         .services { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-        .services h2 { text-align: center; margin-bottom: 40px; font-size: 30px; text-transform: uppercase; letter-spacing: 1px; }
-        .services h2 span { color: #ff9f43; }
+        .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 6vw, 58px); letter-spacing: 2px; text-transform: uppercase; text-align: center; margin-bottom: 8px; line-height: 1; }
+        .section-title span { color: #ff9f43; }
+        .section-eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #ff9f43; margin-bottom: 12px; }
+        .section-eyebrow::before, .section-eyebrow::after { content: ''; display: block; width: 20px; height: 1px; background: #ff9f43; }
+        .services .section-title { margin-bottom: 40px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 25px; }
-
-        /* Tətbiq tipli Kartlar və Mikro-Animasiyalar */
-        .card { background: #161616; padding: 35px 25px; border-radius: 16px; border: 1px solid #222; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; display: flex; flex-direction: column; gap: 15px; }
-        .card-icon { width: 50px; height: 50px; background: rgba(255, 159, 67, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #ff9f43; font-size: 22px; transition: 0.3s; }
+        .card { background: #161616; padding: 35px 25px; border-radius: 16px; border: 1px solid #222; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); position: relative; display: flex; flex-direction: column; gap: 12px; opacity: 0; transform: translateY(28px); }
+        .card.revealed { opacity: 1; transform: translateY(0); transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.4s, box-shadow 0.4s; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #ff9f43, #ff7f11); border-radius: 16px 16px 0 0; transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+        .card:hover::before { transform: scaleX(1); }
+        .card-icon { width: 50px; height: 50px; background: rgba(255,159,67,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #ff9f43; font-size: 22px; transition: 0.3s; }
         .card:hover { transform: scale(1.03); border-color: #ff9f43; box-shadow: 0 15px 35px rgba(255,159,67,0.1); }
         .card:hover .card-icon { background: #ff9f43; color: #0d0d0d; transform: rotate(10deg); }
         .card h3 { color: #fff; font-size: 20px; font-weight: 700; }
         .card p { color: #888; font-size: 15px; }
-
-        /* DİNAMİK QİYMƏTLƏR VE FİLTR BUTTONLARI */
+        .card-price { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; font-size: 13px; font-weight: 600; color: #ff9f43; background: rgba(255,159,67,0.08); border: 1px solid rgba(255,159,67,0.15); padding: 6px 14px; border-radius: 8px; align-self: flex-start; }
         .prices-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-        .prices-section h2 { text-align: center; margin-bottom: 10px; font-size: 30px; text-transform: uppercase; letter-spacing: 1px; }
-        .prices-section h2 span { color: #ff9f43; }
-        .filter-btn { background: #161616; color: #aaa; border: 1px solid #252525; padding: 10px 22px; border-radius: 25px; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: 0.3s; }
+        .prices-section .section-title { margin-bottom: 10px; }
+        .filter-btn { background: #161616; color: #aaa; border: 1px solid #252525; padding: 10px 22px; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: 0.3s; font-family: 'Inter', sans-serif; }
         .active-btn { background: #ff9f43; color: #000; border-color: #ff9f43; box-shadow: 0 2px 10px rgba(255,159,67,0.2); }
-        .oil-card { background: #111; padding: 16px; border-radius: 14px; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid #ff9f43; border-top: 1px solid #1a1a1a; border-right: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; margin-bottom: 10px; transition: 0.2s; }
-        .oil-card:hover { transform: translateY(-2px); border-color: #333; }
-
-        /* Üstünlüklər Bölməsi */
-        .why-us { background: #121212; padding: 60px 20px; text-align: center; border-top: 1px solid #1f1f1f; }
+        .filter-scroll-wrap { position: relative; margin-bottom: 25px; }
+        .filter-scroll-wrap::after { content: ''; position: absolute; top: 0; right: 0; bottom: 15px; width: 60px; background: linear-gradient(to left, #0d0d0d, transparent); pointer-events: none; }
+        #brand-filters-container { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 15px; scrollbar-width: thin; scrollbar-color: #333 transparent; -webkit-overflow-scrolling: touch; }
+        #brand-filters-container::-webkit-scrollbar { height: 3px; }
+        #brand-filters-container::-webkit-scrollbar-track { background: transparent; }
+        #brand-filters-container::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        .oil-card { background: #111; padding: 16px; border-radius: 14px; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid #ff9f43; border-top: 1px solid #1a1a1a; border-right: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; margin-bottom: 10px; transition: 0.2s; opacity: 0; transform: translateY(16px); }
+        .oil-card.revealed { opacity: 1; transform: translateY(0); transition: opacity 0.4s ease, transform 0.4s ease; }
+        .oil-card:hover { transform: translateY(-2px); border-left-color: #ff7f11; }
+        .badge-ekonom { font-size: 10px; font-weight: 700; background: #1a2a1a; color: #5cb85c; border: 1px solid #2a4a2a; padding: 2px 8px; border-radius: 6px; margin-left: 8px; letter-spacing: 1px; }
+        .badge-premium { font-size: 10px; font-weight: 700; background: #2a1a00; color: #ff9f43; border: 1px solid #3a2a00; padding: 2px 8px; border-radius: 6px; margin-left: 8px; letter-spacing: 1px; }
+        .why-us { background: #0f0f0f; padding: 60px 20px; border-top: 1px solid #1f1f1f; }
+        .why-us .section-title { margin-bottom: 40px; }
+        .stats-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; max-width: 900px; margin: 0 auto 48px auto; }
+        .stat-box { flex: 1; min-width: 160px; background: #161616; border: 1px solid #252525; border-radius: 14px; padding: 24px 20px; text-align: center; transition: 0.3s; opacity: 0; transform: translateY(20px); }
+        .stat-box.revealed { opacity: 1; transform: translateY(0); transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s; }
+        .stat-box:hover { border-color: #ff9f43; transform: translateY(-4px); }
+        .stat-box-num { font-family: 'Bebas Neue', sans-serif; font-size: 50px; line-height: 1; color: #ff9f43; }
+        .stat-box-label { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #666; margin-top: 6px; }
         .why-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 25px; }
-        .why-item { flex: 1; min-width: 260px; padding: 25px; background: #1a1a1a; border-radius: 14px; border: 1px solid #252525; transition: 0.3s; }
+        .why-item { flex: 1; min-width: 260px; padding: 25px; background: #1a1a1a; border-radius: 14px; border: 1px solid #252525; transition: 0.3s; opacity: 0; transform: translateY(20px); }
+        .why-item.revealed { opacity: 1; transform: translateY(0); transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, box-shadow 0.3s; }
         .why-item:hover { border-color: #ff9f43; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,159,67,0.05); }
         .why-item i { font-size: 32px; color: #ff9f43; margin-bottom: 15px; }
-        .why-item h4 { color: #fff; font-size: 20px; margin-bottom: 10px; }
+        .why-item h4 { color: #fff; font-size: 20px; margin-bottom: 10px; font-weight: 700; }
         .why-item p { color: #888; font-size: 14px; }
-
-        /* Əlaqə Bölməsi */
-        .contact { padding: 80px 20px 40px 20px; max-width: 800px; margin: 0 auto; text-align: center; }
-        .contact h2 { font-size: 32px; margin-bottom: 15px; }
-        .contact p { margin-bottom: 30px; color: #999; font-size: 16px; }
-        .phone-link { font-size: 30px; color: #ff9f43; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 12px; margin-bottom: 25px; transition: 0.3s; }
-        .phone-link:hover { color: #fff; transform: scale(1.02); }
-        .address-box { display: inline-flex; align-items: center; gap: 8px; background: #161616; padding: 12px 25px; border-radius: 30px; border: 1px solid #282828; color: #ddd; font-size: 15px; margin: 0 auto; }
-
-        footer { text-align: center; padding: 20px; color: #444; font-size: 12px; margin-bottom: 20px; }
-
-        @media (min-width: 768px) {
-            .hero h1 { font-size: 52px; }
-            .hero p { font-size: 18px; }
-        }
+        .contact { padding: 80px 20px 40px 20px; max-width: 900px; margin: 0 auto; }
+        .contact .section-title { text-align: left; margin-bottom: 8px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+        @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+        .map-box { background: #111; border-radius: 16px; overflow: hidden; height: 220px; position: relative; border: 1px solid #1f1f1f; grid-column: 1 / -1; }
+        .map-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,159,67,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,159,67,0.05) 1px, transparent 1px); background-size: 28px 28px; }
+        .map-road-h { position: absolute; top: 50%; left: 0; right: 0; height: 26px; margin-top: -13px; background: rgba(255,255,255,0.025); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .map-road-v { position: absolute; left: 40%; top: 0; bottom: 0; width: 26px; margin-left: -13px; background: rgba(255,255,255,0.025); border-left: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); }
+        .map-pin { position: absolute; top: 50%; left: 40%; transform: translate(-50%, -70%); text-align: center; }
+        .pin-dot { width: 18px; height: 18px; background: #ff9f43; border-radius: 50%; margin: 0 auto; box-shadow: 0 0 0 8px rgba(255,159,67,0.2), 0 0 0 20px rgba(255,159,67,0.07); animation: pulse-pin 2s ease-in-out infinite; }
+        @keyframes pulse-pin { 0%,100% { box-shadow: 0 0 0 8px rgba(255,159,67,0.2), 0 0 0 20px rgba(255,159,67,0.07); } 50% { box-shadow: 0 0 0 14px rgba(255,159,67,0.15), 0 0 0 30px rgba(255,159,67,0.03); } }
+        .pin-label { margin-top: 10px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #ff9f43; background: rgba(13,13,13,0.85); padding: 4px 10px; border-radius: 6px; white-space: nowrap; }
+        .map-open-link { position: absolute; bottom: 14px; right: 14px; font-size: 12px; font-weight: 600; color: #ff9f43; background: rgba(13,13,13,0.85); padding: 6px 14px; border-radius: 8px; text-decoration: none; letter-spacing: 1px; border: 1px solid rgba(255,159,67,0.2); transition: 0.2s; }
+        .map-open-link:hover { background: #ff9f43; color: #000; }
+        .contact-detail-rows { display: flex; flex-direction: column; gap: 16px; }
+        .detail-row { display: flex; align-items: flex-start; gap: 14px; }
+        .detail-icon { width: 42px; height: 42px; flex-shrink: 0; background: rgba(255,159,67,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #ff9f43; font-size: 17px; }
+        .detail-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #666; margin-bottom: 3px; }
+        .detail-value { font-size: 15px; color: #ddd; font-weight: 500; }
+        .detail-value a { color: #ff9f43; text-decoration: none; }
+        .detail-value a:hover { color: #fff; }
+        .contact-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+        .contact-btn { flex: 1; min-width: 140px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 20px; border-radius: 12px; font-size: 14px; font-weight: 700; text-decoration: none; transition: 0.3s; border: none; cursor: pointer; font-family: 'Inter', sans-serif; }
+        .btn-call { background: linear-gradient(45deg, #ff9f43, #ff7f11); color: #000; }
+        .btn-call:hover { box-shadow: 0 6px 20px rgba(255,159,67,0.4); transform: translateY(-2px); }
+        .btn-wp { background: #25D366; color: #fff; }
+        .btn-wp:hover { box-shadow: 0 6px 20px rgba(37,211,102,0.4); transform: translateY(-2px); }
+        footer { background: #0a0a0a; border-top: 1px solid #1a1a1a; padding: 36px 20px 24px; margin-bottom: 0; }
+        .footer-inner { max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 28px; margin-bottom: 28px; }
+        .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: #fff; }
+        .footer-logo span { color: #ff9f43; }
+        .footer-tagline { font-size: 13px; color: #555; margin-top: 4px; }
+        .footer-links { display: flex; flex-direction: column; gap: 10px; }
+        .footer-links a { font-size: 13px; color: #666; text-decoration: none; transition: 0.2s; cursor: pointer; }
+        .footer-links a:hover { color: #ff9f43; }
+        .footer-links-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #444; margin-bottom: 4px; }
+        .footer-socials { display: flex; gap: 12px; margin-top: 8px; }
+        .footer-social-icon { width: 38px; height: 38px; border-radius: 10px; background: #1a1a1a; border: 1px solid #252525; display: flex; align-items: center; justify-content: center; color: #666; font-size: 16px; text-decoration: none; transition: 0.3s; }
+        .footer-social-icon:hover { background: #ff9f43; border-color: #ff9f43; color: #000; transform: translateY(-3px); }
+        .footer-bottom { border-top: 1px solid #1a1a1a; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; max-width: 900px; margin: 0 auto; }
+        .footer-copy { font-size: 12px; color: #444; }
+        .footer-amber { color: #ff9f43; }
+        #admin-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; }
+        .admin-inner { background: #111; padding: 25px; border-radius: 16px; width: 100%; max-width: 450px; border: 1px solid #222; max-height: 80vh; overflow-y: auto; }
+        @media (min-width: 768px) { .hero p { font-size: 18px; } }
+        @media (max-width: 480px) { .hero-stats { gap: 20px; } .stats-row { gap: 12px; } .stat-box { min-width: 130px; } }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <div class="logo animate__animated animate__fadeInDown"><i class="fa-solid fa-oil-can"></i> 173 <span>YAĞLAMA</span></div>
-            <a href="tel:+994558325052" class="cta-btn"><i class="fa-solid fa-phone"></i> ZƏNG ET</a>
+<header>
+    <div class="nav-container">
+        <div class="logo"><i class="fa-solid fa-oil-can"></i> 173 <span>YAĞLAMA</span></div>
+        <a href="tel:+994558325052" class="cta-btn"><i class="fa-solid fa-phone"></i> ZƏNG ET</a>
+    </div>
+</header>
+
+<main id="main-content">
+
+<div id="tab-home">
+    <section class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Premium Avto Servis · Hövsan</div>
+            <h1>Mühərrikin Ömrünü<br><span>173 Yağlama</span><br>ilə Uzat</h1>
+            <p>Premium mühərrik yağları və sürətli avto-baxım vitrini. Avtomobilinizə tətbiq rahatlığında rəqəmsal və peşəkar qulluq.</p>
+            <a href="tel:+994558325052" class="cta-btn"><i class="fa-solid fa-calendar-check"></i> Sürətli Növbə Al</a>
+            <div class="hero-stats">
+                <div class="hero-stat"><div class="hero-stat-num">18<span>K+</span></div><div class="hero-stat-label">Müştəri</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">4.9<span>★</span></div><div class="hero-stat-label">Reytinq</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">45<span>dəq</span></div><div class="hero-stat-label">Ortalama Vaxt</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">6<span>+</span></div><div class="hero-stat-label">Premium Brend</div><
+<div id="admin-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:10000;justify-content:center;align-items:center;padding:20px;box-sizing:border-box;">
+    <div class="admin-inner">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;"><h3 style="color:#fff;margin:0;">Admin Girişi</h3><button onclick="closeAdmin()" style="background:none;border:none;color:#ff9f43;font-size:16px;cursor:pointer;font-family:'Inter',sans-serif;">Bağla</button></div>
+        <div id="auth-box">
+            <input type="password" id="admin-pass" placeholder="Şifrəni yazın" style="width:100%;padding:12px;background:#222;border:1px solid #333;border-radius:8px;color:#fff;margin-bottom:15px;box-sizing:border-box;font-family:'Inter',sans-serif;">
+            <button onclick="verifyAdmin()" style="width:100%;padding:12px;background:#ff9f43;border:none;border-radius:8px;color:#000;font-weight:bold;cursor:pointer;font-family:'Inter',sans-serif;">Daxil Ol</button>
         </div>
-    </header>
-
-    <main id="main-content">
-        
-        <div id="tab-home">
-            <section class="hero">
-                <h1 class="animate__animated animate__fadeInUp">Mühərrikin Ömrünü <span>173 Yağlama</span> ilə Uzat</h1>
-                <p class="animate__animated animate__fadeInUp">Premium mühərrik yağları və sürətli avto-baxım vitrini. Avtomobilinizə tətbiq rahatlığında rəqəmsal və peşəkar qulluq.</p>
-                <a href="tel:+994558325052" class="cta-btn animate__animated animate__fadeInUp"><i class="fa-solid fa-calendar-check"></i> Sürətli Növbə Al</a>
-
-                <div class="brand-slider-container animate__animated animate__fadeIn">
-                    <div id="secret-trigger" onclick="handleSecretClick()" class="brand-slider-title" style="cursor: pointer; user-select: none;">Rəsmi Brendlərimiz</div>
-                    <div class="slider-track">
-                        <div class="slide">LIQUI MOLY</div>
-                        <div class="slide">SHELL</div>
-                        <div class="slide">MEGUIN</div>
-                        <div class="slide">CASTROL</div>
-                        <div class="slide">MOBIL 1</div>
-                        <div class="slide">ALPIN</div>
-                        <div class="slide">LIQUI MOLY</div>
-                        <div class="slide">SHELL</div>
-                        <div class="slide">MEGUIN</div>
-                        <div class="slide">CASTROL</div>
-                        <div class="slide">MOBIL 1</div>
-                        <div class="slide">ALPIN</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="why-us">
-                <div class="why-container">
-                    <div class="why-item">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <h4>100% Orijinal</h4>
-                        <p>Bütün yağlar rəsmi distributordan zəmanətlidir.</p>
-                    </div>
-                    <div class="why-item">
-                        <i class="fa-solid fa-bolt"></i>
-                        <h4>Ekspres Xidmət</h4>
-                        <p>Mobil tətbiq sürətində, növbə gözləmədən operativ iş.</p>
-                    </div>
-                    <div class="why-item">
-                        <i class="fa-solid fa-user-check"></i>
-                        <h4>Peşəkar Usta</h4>
-                        <p>Təcrübəli və etibarlı avto-baxım qulluğu.</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div id="tab-services" style="display: none;">
-            <section class="services">
-                <h2>Xidmət <span>Vitrini</span></h2>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-icon"><i class="fa-solid fa-droplet"></i></div>
-                        <h3>Premium Yağ Dəyişmə</h3>
-                        <p>Liqui Moly, Shell, Meguin, Castrol, Mobil 1 və Alpin kimi dünya brendləri ilə mühərrik yağının aparatla peşəkar dəyişdirilməsi.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fa-solid fa-filter"></i></div>
-                        <h3>Filtrlərin Yenilənməsi</h3>
-                        <p>Hava, yağ, salon və yanacaq filtrlərinin orijinal ehtiyat hissələri ilə təmiz, sürətli və zəmanətli əvəzlənməsi.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
-                        <h3>Maye və Diaqnostika</h3>
-                        <p>Əyləc mayesi, antifriz və sürətlər qutusu (korobka) yağlarının xüsusi tətbiq cihazları ilə yoxlanılması və yenilənməsi.</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div id="tab-prices" style="display: none;">
-            <section class="prices-section">
-                <h2>Yağlar və <span>Qiymətlər</span></h2>
-                <p style="text-align: center; color: #666; font-size: 13px; margin-bottom: 25px;">Kataloqdan brendi seçərək 1 Litr üçün olan qiymətlərlə tanış olun.</p>
-                
-                <div id="brand-filters-container" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 15px; margin-bottom: 25px; scrollbar-width: none; -webkit-overflow-scrolling: touch;"></div>
-
-                <div id="oils-container" style="display: flex; flex-direction: column; max-width: 600px; margin: 0 auto;"></div>
-            </section>
-        </div>
-
-        <div id="tab-contact" style="display: none;">
-            <section class="contact">
-                <h2>Ciddi İş, Lüks Keyfiyyət</h2>
-                <p>Avtomobilinizi sıradan servislərə yox, Hövsandakı peşəkarlara etibar edin. Qiymət öyrənmək üçün klikləyin:</p>
-                <a href="tel:+994558325052" class="phone-link"><i class="fa-solid fa-square-phone"></i> +994 (55) 832-50-52</a>
-                <br><br>
-                <div class="address-box"><i class="fa-solid fa-location-dot"></i> Ünvan: Hövsan qəsəbəsi</div>
-            </section>
-        </div>
-
-    </main>
-
-    <div id="admin-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;">
-        <div style="background: #111; padding: 25px; border-radius: 16px; width: 100%; max-width: 450px; border: 1px solid #222; max-height: 80vh; overflow-y: auto;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3 style="color: #fff; margin: 0;">Admin Girişi</h3>
-                <button onclick="closeAdmin()" style="background: none; border: none; color: #ff9f43; font-size: 16px; cursor: pointer;">Bağla</button>
-            </div>
-            
-            <div id="auth-box">
-                <input type="password" id="admin-pass" placeholder="Şifrəni yazın" style="width: 100%; padding: 12px; background: #222; border: 1px solid #333; border-radius: 8px; color: #fff; margin-bottom: 15px; box-sizing: border-box;">
-                <button onclick="verifyAdmin()" style="width: 100%; padding: 12px; background: #ff9f43; border: none; border-radius: 8px; color: #000; font-weight: bold; cursor: pointer;">Daxil Ol</button>
-            </div>
-
-            <div id="control-box" style="display: none;">
-                <h4 style="color: #ff9f43; margin: 0 0 10px 0;">Yeni Yağ Əlavə Et</h4>
-                <select id="new-brand" style="width:100%; padding:10px; background:#222; color:#fff; border:1px solid #333; border-radius:8px; margin-bottom:10px;"></select>
-                <input type="text" id="new-name" placeholder="Yağ Tipi (Məs: 5W-30 C3)" style="width:100%; padding:10px; background:#222; color:#fff; border:1px solid #333; border-radius:8px; margin-bottom:10px; box-sizing: border-box;">
-                <input type="text" id="new-p1" placeholder="Qiymət (AZN)" style="width:100%; padding:10px; background:#222; color:#fff; border:1px solid #333; border-radius:8px; margin-bottom:15px; box-sizing: border-box;">
-                <button onclick="addNewOil()" style="width: 100%; padding: 12px; background: #28a745; border: none; border-radius: 8px; color: #fff; font-weight: bold; cursor: pointer; margin-bottom: 20px;">Siyahıya Artır</button>
-                
-                <h4 style="color: #fff; margin: 10px 0;">Mövcud Mallar</h4>
-                <div id="admin-oils-list" style="display:flex; flex-direction:column; gap:8px;"></div>
-            </div>
+        <div id="control-box" style="display:none;">
+            <h4 style="color:#ff9f43;margin:0 0 10px 0;">Yeni Yağ Əlavə Et</h4>
+            <select id="new-brand" style="width:100%;padding:10px;background:#222;color:#fff;border:1px solid #333;border-radius:8px;margin-bottom:10px;font-family:'Inter',sans-serif;"></select>
+            <input type="text" id="new-name" placeholder="Yağ Tipi (Məs: 5W-30 C3)" style="width:100%;padding:10px;background:#222;color:#fff;border:1px solid #333;border-radius:8px;margin-bottom:10px;box-sizing:border-box;font-family:'Inter',sans-serif;">
+            <input type="text" id="new-p1" placeholder="Qiymət (AZN)" style="width:100%;padding:10px;background:#222;color:#fff;border:1px solid #333;border-radius:8px;margin-bottom:15px;box-sizing:border-box;font-family:'Inter',sans-serif;">
+            <button onclick="addNewOil()" style="width:100%;padding:12px;background:#28a745;border:none;border-radius:8px;color:#fff;font-weight:bold;cursor:pointer;margin-bottom:20px;font-family:'Inter',sans-serif;">Siyahıya Artır</button>
+            <h4 style="color:#fff;margin:10px 0;">Mövcud Mallar</h4>
+            <div id="admin-oils-list" style="display:flex;flex-direction:column;gap:8px;"></div>
         </div>
     </div>
+</div>
 
-    <nav class="bottom-nav">
-        <a id="btn-home" class="bottom-nav-item active" onclick="switchTab('home')"><i class="fa-solid fa-house"></i>Əsas</a>
-        <a id="btn-services" class="bottom-nav-item" onclick="switchTab('services')"><i class="fa-solid fa-layer-group"></i>Xidmətlər</a>
-        <a id="btn-prices" class="bottom-nav-item" onclick="switchTab('prices')"><i class="fa-solid fa-tags"></i>Qiymətlər</a>
-        <a id="btn-contact" class="bottom-nav-item" onclick="switchTab('contact')"><i class="fa-solid fa-address-book"></i>Əlaqə</a>
-    </nav>
+<a href="https://wa.me/994558325052" target="_blank" class="whatsapp-float" title="WhatsApp ilə yazın"><i class="fa-brands fa-whatsapp"></i></a>
 
-    <footer>
-        &copy; 2026 173 Yağlama. Bütün hüquqlar qorunur.
-    </footer>
+<nav class="bottom-nav">
+    <a id="btn-home"     class="bottom-nav-item active" onclick="switchTab('home')">    <i class="fa-solid fa-house"></i>Əsas</a>
+    <a id="btn-services" class="bottom-nav-item"        onclick="switchTab('services')"><i class="fa-solid fa-layer-group"></i>Xidmətlər</a>
+    <a id="btn-prices"   class="bottom-nav-item"        onclick="switchTab('prices')">  <i class="fa-solid fa-tags"></i>Qiymətlər</a>
+    <a id="btn-contact"  class="bottom-nav-item"        onclick="switchTab('contact')"> <i class="fa-solid fa-address-book"></i>Əlaqə</a>
+</nav>
 
-    <script>
-        const fullOilsList = [
-            {"brand": "Castrol", "name": "5W-30 C3", "price_1l": "22"},
-            {"brand": "Castrol", "name": "5W-40 C3", "price_1l": "22"},
-            {"brand": "Castrol", "name": "5W-30 AP", "price_1l": "20"},
-            {"brand": "Castrol", "name": "5W-40 GTX", "price_1l": "17.5"},
-            {"brand": "Castrol", "name": "10W-40", "price_1l": "14"},
-            {"brand": "Castrol", "name": "5W-30 GTX", "price_1l": "17.5"},
-            {"brand": "Shell", "name": "5W-30 Ultra", "price_1l": "24"},
-            {"brand": "Shell", "name": "5W-30 Ultra C3", "price_1l": "25"},
-            {"brand": "Shell", "name": "5W-30 ECT", "price_1l": "20"},
-            {"brand": "Shell", "name": "5W-30 HX7", "price_1l": "18"},
-            {"brand": "Shell", "name": "5W-40 HX7", "price_1l": "17"},
-            {"brand": "Shell", "name": "5W-40 Ultra", "price_1l": "24"},
-            {"brand": "Shell", "name": "10W-40 HX5", "price_1l": "15"},
-            {"brand": "Shell", "name": "10W-40 HX7", "price_1l": "18"},
-            {"brand": "Liqui Moly", "name": "5W-30 AA", "price_1l": "28.6"},
-            {"brand": "Liqui Moly", "name": "0W-20 AA", "price_1l": "28.8"},
-            {"brand": "Liqui Moly", "name": "5W-30 C3", "price_1l": "27.2"},
-            {"brand": "Liqui Moly", "name": "5W-30 Dex1", "price_1l": "29.4"},
-            {"brand": "Liqui Moly", "name": "5W-30 HC7", "price_1l": "26"},
-            {"brand": "Liqui Moly", "name": "5W-40 HC7", "price_1l": "25"},
-            {"brand": "Liqui Moly", "name": "5W-40 4100", "price_1l": "29.8"},
-            {"brand": "Liqui Moly", "name": "10W-40 Nach", "price_1l": "20.8"},
-            {"brand": "Meguin", "name": "5W-30 Spesial", "price_1l": "29"},
-            {"brand": "Meguin", "name": "5W-30 Quality", "price_1l": "21"},
-            {"brand": "Meguin", "name": "5W-30 EFFI", "price_1l": "23"},
-            {"brand": "Meguin", "name": "5W-30 Mobility", "price_1l": "24"},
-            {"brand": "Meguin", "name": "5W-30 New G", "price_1l": "21"},
-            {"brand": "Meguin", "name": "5W-40 High", "price_1l": "22"},
-            {"brand": "Meguin", "name": "5W-40 Ultra Long", "price_1l": "20"},
-            {"brand": "Meguin", "name": "5W-40 Low Em", "price_1l": "22"},
-            {"brand": "Meguin", "name": "10W-40 Super", "price_1l": "18"},
-            {"brand": "Meguin", "name": "10W-40 Diesel", "price_1l": "17"},
-            {"brand": "Japan", "name": "5W-30 C3", "price_1l": "16"},
-            {"brand": "Japan", "name": "5W-30", "price_1l": "14"},
-            {"brand": "Japan", "name": "5W-40", "price_1l": "14"},
-            {"brand": "Japan", "name": "10W-40", "price_1l": "12"},
-            {"brand": "Japan", "name": "5W-20", "price_1l": "15"},
-            {"brand": "Japan", "name": "0W-20", "price_1l": "15"},
-            {"brand": "Japan", "name": "0W-16", "price_1l": "17"},
-            {"brand": "Japan", "name": "ATF WS", "price_1l": "17"},
-            {"brand": "Japan", "name": "ATF Multi", "price_1l": "17"},
-            {"brand": "Japan", "name": "ATF III", "price_1l": "14"},
-            {"brand": "Japan", "name": "ATF SP-4", "price_1l": "16"},
-            {"brand": "Japan", "name": "ATF SP-3", "price_1l": "15"},
-            {"brand": "Japan", "name": "ATF CVT", "price_1l": "20"},
-            {"brand": "Mobil", "name": "5W-30 Super 3000", "price_1l": "22"},
-            {"brand": "Mobil", "name": "5W-30 C3", "price_1l": "20"},
-            {"brand": "Mobil", "name": "5W-40 Super 3000", "price_1l": "20"},
-            {"brand": "Mobil", "name": "10W-40 Super 2000", "price_1l": "16"},
-            {"brand": "Petro Canada", "name": "0W-20", "price_1l": "20.6"},
-            {"brand": "Petro Canada", "name": "5W-20", "price_1l": "17"},
-            {"brand": "Petro Canada", "name": "5W-30", "price_1l": "16"},
-            {"brand": "Petro Canada", "name": "5W-40", "price_1l": "17"},
-            {"brand": "Petro Canada", "name": "10W-40", "price_1l": "14"},
-            {"brand": "Petro Canada", "name": "5W-30 Dex1", "price_1l": "18"},
-            {"brand": "Alpine", "name": "0W-20", "price_1l": "19.6"},
-            {"brand": "Alpine", "name": "0W-30", "price_1l": "23"},
-            {"brand": "Alpine", "name": "5W-20", "price_1l": "19.6"},
-            {"brand": "Alpine", "name": "5W-30 DX1", "price_1l": "19.6"},
-            {"brand": "Alpine", "name": "5W-30 LA", "price_1l": "19.6"},
-            {"brand": "Alpine", "name": "5W-30 TS", "price_1l": "15.4"},
-            {"brand": "Alpine", "name": "5W-40 Eco", "price_1l": "16.2"},
-            {"brand": "Alpine", "name": "5W-40 RSL", "price_1l": "18.8"},
-            {"brand": "Alpine", "name": "10W-40 TS", "price_1l": "13.8"},
-            {"brand": "Alpine", "name": "10W-60 TS", "price_1l": "19.6"},
-            {"brand": "Fosser", "name": "0W-20", "price_1l": "27"},
-            {"brand": "Fosser", "name": "5W-30 Dex1", "price_1l": "20"},
-            {"brand": "Fosser", "name": "5W-30 Multy", "price_1l": "19"},
-            {"brand": "Fosser", "name": "5W-30 Long III", "price_1l": "19"},
-            {"brand": "Fosser", "name": "5W-40 Premium", "price_1l": "18"},
-            {"brand": "Fosser", "name": "5W-40 LA", "price_1l": "20"},
-            {"brand": "Fosser", "name": "10W-40", "price_1l": "13"},
-            {"brand": "Fosser", "name": "15W-40 Diesel", "price_1l": "12"},
-            {"brand": "Fosser", "name": "15W-40 Garant", "price_1l": "12"},
-            {"brand": "Fosser", "name": "0W-16", "price_1l": "22"},
-            {"brand": "BP", "name": "5W-30", "price_1l": "15"},
-            {"brand": "BP", "name": "5W-40", "price_1l": "15"},
-            {"brand": "BP", "name": "10W-40", "price_1l": "10"},
-            {"brand": "Eneos", "name": "0W-20", "price_1l": "20"},
-            {"brand": "Eneos", "name": "5W-20", "price_1l": "20"},
-            {"brand": "Eneos", "name": "5W-30 Sarı", "price_1l": "17.5"},
-            {"brand": "Eneos", "name": "5W-30 Qırmızı", "price_1l": "15"},
-            {"brand": "Eneos", "name": "5W-40 Sarı", "price_1l": "17.5"},
-            {"brand": "Avista", "name": "5W-30 C3", "price_1l": "18"},
-            {"brand": "Avista", "name": "5W-30 GER", "price_1l": "16"},
-            {"brand": "Avista", "name": "5W-40 GER", "price_1l": "15"},
-            {"brand": "Avista", "name": "5W-40 B", "price_1l": "14"},
-            {"brand": "Avista", "name": "10W-40", "price_1l": "13"},
-            {"brand": "Avista", "name": "10W-40 B", "price_1l": "12"},
-            {"brand": "Avista", "name": "15W-40", "price_1l": "11"},
-            {"brand": "Pennol", "name": "0W-20", "price_1l": "20"},
-            {"brand": "Pennol", "name": "5W-30 C3", "price_1l": "17"},
-            {"brand": "Pennol", "name": "5W-30 MS", "price_1l": "16"},
-            {"brand": "Pennol", "name": "5W-40 C3", "price_1l": "17"},
-            {"brand": "Pennol", "name": "5W-40 SN/CF", "price_1l": "16"},
-            {"brand": "Pennol", "name": "10W-40", "price_1l": "13"},
-            {"brand": "Pennol", "name": "15W-40", "price_1l": "10"},
-            {"brand": "Mannol", "name": "5W-30 Energy", "price_1l": "15"},
-            {"brand": "Mannol", "name": "5W-40 Elite", "price_1l": "15"},
-            {"brand": "Mannol", "name": "10W-40 Classic", "price_1l": "11"},
-            {"brand": "Mannol", "name": "10W-40 Diesel", "price_1l": "11"},
-            {"brand": "Mannol", "name": "15W-40 B", "price_1l": "8"},
-            {"brand": "Mannol", "name": "10W-40 B", "price_1l": "8"},
-            {"brand": "Mannol", "name": "2 Takt", "price_1l": "10"},
-            {"brand": "Champion", "name": "5W-20", "price_1l": "20"},
-            {"brand": "Champion", "name": "0W-20", "price_1l": "20"},
-            {"brand": "Champion", "name": "5W-30 C3", "price_1l": "18"},
-            {"brand": "Champion", "name": "5W-30 D1", "price_1l": "18"},
-            {"brand": "Champion", "name": "5W-30 Sada", "price_1l": "17"},
-            {"brand": "Champion", "name": "5W-40 C3", "price_1l": "20"},
-            {"brand": "Champion", "name": "5W-40 Sada", "price_1l": "17"},
-            {"brand": "Champion", "name": "10W-40 B4", "price_1l": "14"},
-            {"brand": "Champion", "name": "10W-40 Diesel", "price_1l": "14"},
-            {"brand": "Kixx", "name": "5W-30 Dex1", "price_1l": "15"},
-            {"brand": "Kixx", "name": "5W-30 SN Plus", "price_1l": "15"},
-            {"brand": "Kixx", "name": "5W-30 C3", "price_1l": "18"},
-            {"brand": "Kixx", "name": "5W-30 PAO C3", "price_1l": "21"},
-            {"brand": "Kixx", "name": "5W-40", "price_1l": "15"},
-            {"brand": "Kixx", "name": "10W-40", "price_1l": "15"},
-            {"brand": "Kixx", "name": "5W-20", "price_1l": "15"},
-            {"brand": "Kixx", "name": "0W-20", "price_1l": "16"},
-            {"brand": "Koil", "name": "0W-20", "price_1l": "12"},
-            {"brand": "Koil", "name": "5W-30", "price_1l": "9"},
-            {"brand": "Koil", "name": "5W-40", "price_1l": "9"},
-            {"brand": "Koil", "name": "5W-30 T.D", "price_1l": "9"},
-            {"brand": "Koil", "name": "5W-40 T.D", "price_1l": "9"},
-            {"brand": "Koil", "name": "10W-40", "price_1l": "8"},
-            {"brand": "Koil", "name": "15W-40", "price_1l": "7"},
-            {"brand": "Cross", "name": "5W-30", "price_1l": "11"},
-            {"brand": "Cross", "name": "5W-30 T.D", "price_1l": "11"},
-            {"brand": "Cross", "name": "5W-40", "price_1l": "11"},
-            {"brand": "Cross", "name": "5W-40 T.D", "price_1l": "11"},
-            {"brand": "Cross", "name": "10W-40", "price_1l": "9"},
-            {"brand": "Cross", "name": "10W-40 T.D", "price_1l": "9"},
-            {"brand": "Texnol", "name": "10W-40 Silver", "price_1l": "7"},
-            {"brand": "Texnol", "name": "10W-40 Gold", "price_1l": "9"},
-            {"brand": "Texnol", "name": "5W-30", "price_1l": "11"},
-            {"brand": "Texnol", "name": "5W-40", "price_1l": "11"},
-            {"brand": "Texnol", "name": "10W-40 Turbo", "price_1l": "7"},
-            {"brand": "Texnol", "name": "15W-40 Turbo", "price_1l": "7"},
-            {"brand": "Texnol", "name": "15W-40 Silver", "price_1l": "7"},
-            {"brand": "Texnol", "name": "15W-40 Bronz", "price_1l": "5"},
-            {"brand": "Texnol", "name": "20W-50 Bronz", "price_1l": "5"},
-            {"brand": "Texnol", "name": "15W-40 B", "price_1l": "4"},
-            {"brand": "Texnol", "name": "20W-50 B", "price_1l": "4"},
-            {"brand": "Texnol", "name": "Flush (Yuma)", "price_1l": "5"},
-            {"brand": "Emka", "name": "5W-30 C3", "price_1l": "19"},
-            {"brand": "Emka", "name": "5W-30 Dex1", "price_1l": "18"},
-            {"brand": "Emka", "name": "5W-30 LL", "price_1l": "17"},
-            {"brand": "Emka", "name": "5W-40", "price_1l": "18"},
-            {"brand": "Emka", "name": "10W-40", "price_1l": "14"},
-            {"brand": "Emka", "name": "10W-40 B", "price_1l": "10"},
-            {"brand": "Emka", "name": "5W-40 B", "price_1l": "12"},
-            {"brand": "Monza", "name": "5W-30 LA", "price_1l": "19.6"},
-            {"brand": "Monza", "name": "5W-40 GTI LA", "price_1l": "18.8"},
-            {"brand": "Monza", "name": "5W-40 GTI", "price_1l": "16.2"},
-            {"brand": "Monza", "name": "10W-40", "price_1l": "13.8"}
-        ];
+<footer>
+    <div class="footer-inner">
+        <div><div class="footer-logo">173 <span>YAĞLAMA</span></div><div class="footer-tagline">Premium Avto Bakım · Hövsan, Bakı</div><div class="footer-socials" style="margin-top:14px;"><a href="https://wa.me/994558325052" target="_blank" class="footer-social-icon"><i class="fa-brands fa-whatsapp"></i></a><a href="tel:+994558325052" class="footer-social-icon"><i class="fa-solid fa-phone"></i></a><a href="#" class="footer-social-icon"><i class="fa-brands fa-instagram"></i></a></div></div>
+        <div class="footer-links"><div class="footer-links-title">Naviqasiya</div><a onclick="switchTab('home')">Əsas Səhifə</a><a onclick="switchTab('services')">Xidmətlər</a><a onclick="switchTab('prices')">Qiymətlər</a><a onclick="switchTab('contact')">Əlaqə</a></div>
+        <div class="footer-links"><div class="footer-links-title">Əlaqə</div><a href="tel:+994558325052">+994 (55) 832-50-52</a><a href="https://wa.me/994558325052" target="_blank">WhatsApp</a><a>Hövsan qəsəbəsi, Bakı</a><a>B.e–Şnb: 09:00–19:00</a></div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copy">© 2026 <span class="footer-amber">173 Yağlama</span>. Bütün hüquqlar qorunur.</div>
+        <div class="footer-copy">Premium keyfiyyət, <span class="footer-amber">hər avtomobil</span> üçün.</div>
+    </div>
+</footer>
 
-        // Bazanın sıfırlanmaması üçün LocalStorage yoxlaması
-        if (!localStorage.getItem('oils_db')) {
-            localStorage.setItem('oils_db', JSON.stringify(fullOilsList));
-        }
+<script>
+(function(){
+    var canvas=document.getElementById('hero-canvas');
+    if(!canvas)return;
+    var ctx=canvas.getContext('2d'),W,H,particles=[];
+    function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
+    resize();window.addEventListener('resize',resize);
+    function P(){this.x=Math.random()*W;this.y=Math.random()*H+H;this.r=Math.random()*2+0.5;this.speed=Math.random()*0.35+0.15;this.alpha=Math.random()*0.3+0.05;this.drift=(Math.random()-0.5)*0.25;this.amber=Math.random()>0.4;}
+    P.prototype.update=function(){this.y-=this.speed;this.x+=this.drift;if(this.y<-5){this.y=H+5;this.x=Math.random()*W;}};
+    P.prototype.draw=function(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=this.amber?'rgba(255,159,67,'+this.alpha+')':'rgba(255,127,17,'+(this.alpha*0.6)+')';ctx.fill();};
+    for(var i=0;i<70;i++){var p=new P();p.y=Math.random()*H;particles.push(p);}
+    function animate(){ctx.clearRect(0,0,W,H);particles.forEach(function(p){p.update();p.draw();});requestAnimationFrame(animate);}
+    animate();
+})();
 
-        // Tab keçidləri funksiyası
-        function switchTab(tabId) {
-            document.querySelectorAll('#main-content > div').forEach(div => div.style.display = 'none');
-            document.querySelectorAll('.bottom-nav-item').forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById('tab-' + tabId).style.display = 'block';
-            document.getElementById('btn-' + tabId).classList.add('active');
-            window.scrollTo(0,0);
-        }
+var revealObserver=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('revealed');});},{threshold:0.12});
+function observeRevealable(){document.querySelectorAll('.card,.why-item,.stat-box,.oil-card').forEach(function(el){revealObserver.observe(el);});}
+observeRevealable();
 
-        // Admin panel aktivləşdirmə (Gizli klik)
-        let clickCount = 0;
-        function handleSecretClick() {
-            clickCount++;
-            if (clickCount === 3) {
-                clickCount = 0;
-                document.getElementById('admin-modal').style.display = 'flex';
-            }
-            setTimeout(() => { if(clickCount > 0) clickCount = 0; }, 2000);
-        }
+var fullOilsList=[
+    {"brand":"Castrol","name":"5W-30 C3","price_1l":"22"},{"brand":"Castrol","name":"5W-40 C3","price_1l":"22"},{"brand":"Castrol","name":"5W-30 AP","price_1l":"20"},{"brand":"Castrol","name":"5W-40 GTX","price_1l":"17.5"},{"brand":"Castrol","name":"10W-40","price_1l":"14"},{"brand":"Castrol","name":"5W-30 GTX","price_1l":"17.5"},
+    {"brand":"Shell","name":"5W-30 Ultra","price_1l":"24"},{"brand":"Shell","name":"5W-30 Ultra C3","price_1l":"25"},{"brand":"Shell","name":"5W-30 ECT","price_1l":"20"},{"brand":"Shell","name":"5W-30 HX7","price_1l":"18"},{"brand":"Shell","name":"5W-40 HX7","price_1l":"17"},{"brand":"Shell","name":"5W-40 Ultra","price_1l":"24"},{"brand":"Shell","name":"10W-40 HX5","price_1l":"15"},{"brand":"Shell","name":"10W-40 HX7","price_1l":"18"},
+    {"brand":"Liqui Moly","name":"5W-30 AA","price_1l":"28.6"},{"brand":"Liqui Moly","name":"0W-20 AA","price_1l":"28.8"},{"brand":"Liqui Moly","name":"5W-30 C3","price_1l":"27.2"},{"brand":"Liqui Moly","name":"5W-30 Dex1","price_1l":"29.4"},{"brand":"Liqui Moly","name":"5W-30 HC7","price_1l":"26"},{"brand":"Liqui Moly","name":"5W-40 HC7","price_1l":"25"},{"brand":"Liqui Moly","name":"5W-40 4100","price_1l":"29.8"},{"brand":"Liqui Moly","name":"10W-40 Nach","price_1l":"20.8"},
+    {"brand":"Meguin","name":"5W-30 Spesial","price_1l":"29"},{"brand":"Meguin","name":"5W-30 Quality","price_1l":"21"},{"brand":"Meguin","name":"5W-30 EFFI","price_1l":"23"},{"brand":"Meguin","name":"5W-30 Mobility","price_1l":"24"},{"brand":"Meguin","name":"5W-30 New G","price_1l":"21"},{"brand":"Meguin","name":"5W-40 High","price_1l":"22"},{"brand":"Meguin","name":"5W-40 Ultra Long","price_1l":"20"},{"brand":"Meguin","name":"5W-40 Low Em","price_1l":"22"},{"brand":"Meguin","name":"10W-40 Super","price_1l":"18"},{"brand":"Meguin","name":"10W-40 Diesel","price_1l":"17"},
+    {"brand":"Japan","name":"5W-30 C3","price_1l":"16"},{"brand":"Japan","name":"5W-30","price_1l":"14"},{"brand":"Japan","name":"5W-40","price_1l":"14"},{"brand":"Japan","name":"10W-40","price_1l":"12"},{"brand":"Japan","name":"5W-20","price_1l":"15"},{"brand":"Japan","name":"0W-20","price_1l":"15"},{"brand":"Japan","name":"0W-16","price_1l":"17"},{"brand":"Japan","name":"ATF WS","price_1l":"17"},{"brand":"Japan","name":"ATF Multi","price_1l":"17"},{"brand":"Japan","name":"ATF III","price_1l":"14"},{"brand":"Japan","name":"CVT NS2","price_1l":"17"},{"brand":"Japan","name":"CVT NS3","price_1l":"18"},{"brand":"Japan","name":"Gear 75W-90","price_1l":"15"},
+    {"brand":"Alpin","name":"5W-30 C3","price_1l":"18"},{"brand":"Alpin","name":"5W-40","price_1l":"17"},{"brand":"Alpin","name":"10W-40","price_1l":"13"},{"brand":"Alpin","name":"5W-30","price_1l":"16"}
+];
 
-        function closeAdmin() { document.getElementById('admin-modal').style.display = 'none'; }
+var tabs=['home','services','prices','contact'],currentTab='home';
+function switchTab(tab){tabs.forEach(function(t){document.getElementById('tab-'+t).style.display=(t===tab)?'block':'none';var b=document.getElementById('btn-'+t);if(b)b.classList.toggle('active',t===tab);});currentTab=tab;window.scrollTo(0,0);if(tab==='prices')renderPrices(currentBrand||'Castrol');setTimeout(observeRevealable,80);}
 
-        function verifyAdmin() {
-            let pass = document.getElementById('admin-pass').value;
-            if (pass === "173173") {
-                document.getElementById('auth-box').style.display = 'none';
-                document.getElementById('control-box').style.display = 'block';
-                renderAdminList();
-                renderAdminSelect();
-            } else {
-                alert('Şifrə yanlışdır!');
-            }
-        }
+var currentBrand=null,customOils=JSON.parse(localStorage.getItem('customOils')||'[]');
+function getAllOils(){return fullOilsList.concat(customOils);}
+function getBrands(){var b=[];getAllOils().forEach(function(o){if(b.indexOf(o.brand)===-1)b.push(o.brand);});return b;}
+var premiumBrands=['Liqui Moly','Shell','Mobil 1','Meguin'],ekonomBrands=['Japan','Alpin'];
+function getBadge(brand){if(premiumBrands.indexOf(brand)!==-1)return'<span class="badge-premium">PREMIUM</span>';if(ekonomBrands.indexOf(brand)!==-1)return'<span class="badge-ekonom">EKONOM</span>';return'';}
+function renderPrices(brand){
+    currentBrand=brand;
+    var fc=document.getElementById('brand-filters-container'),oc=document.getElementById('oils-container');
+    if(!fc||!oc)return;
+    fc.innerHTML='';getBrands().forEach(function(b){var btn=document.createElement('button');btn.className='filter-btn'+(b===brand?' active-btn':'');btn.textContent=b;btn.onclick=function(){renderPrices(b);};fc.appendChild(btn);});
+    var oils=getAllOils().filter(function(o){return o.brand===brand;});oc.innerHTML='';
+    oils.forEach(function(oil,idx){var div=document.createElement('div');div.className='oil-card';div.style.transitionDelay=(idx*40)+'ms';div.innerHTML='<div style="display:flex;align-items:center;gap:4px;"><span style="color:#fff;font-weight:600;font-size:15px;">'+oil.brand+' '+oil.name+'</span>'+getBadge(oil.brand)+'</div><div style="display:flex;align-items:center;gap:8px;"><span style="color:#ff9f43;font-weight:800;font-size:17px;font-family:\'Bebas Neue\',sans-serif;letter-spacing:1px;">'+oil.price_1l+' AZN</span><span style="color:#555;font-size:12px;">/L</span>'+(oil._custom?'<button onclick="deleteCustomOil(\''+oil._id+'\')" style="background:none;border:none;color:#555;cursor:pointer;font-size:16px;padding:0 4px;">✕</button>':'')+'</div>';oc.appendChild(div);setTimeout(function(){div.classList.add('revealed');},(30+idx*40));});
+}
 
-        function getOils() { return JSON.parse(localStorage.getItem('oils_db')) || fullOilsList; }
-
-        // Dinamik Brend Filtrlərinin Qurulması
-        function buildFilters() {
-            const container = document.getElementById('brand-filters-container');
-            if(!container) return;
-            let db = getOils();
-            let brands = ['Hamısı'];
-            db.forEach(oil => { if(!brands.includes(oil.brand)) brands.push(oil.brand); });
-            
-            container.innerHTML = '';
-            brands.forEach((brand, idx) => {
-                let activeClass = idx === 0 ? 'active-btn' : '';
-                let filterVal = brand === 'Hamısı' ? 'All' : brand;
-                container.innerHTML += `<button onclick="filterBrand('${filterVal}')" class="filter-btn ${activeClass}">${brand}</button>`;
-            });
-        }
-
-        function renderAdminSelect() {
-            const select = document.getElementById('new-brand');
-            if(!select) return;
-            let db = getOils();
-            let brands = [];
-            db.forEach(oil => { if(!brands.includes(oil.brand)) brands.push(oil.brand); });
-            select.innerHTML = '';
-            brands.forEach(b => { select.innerHTML += `<option value="${b}">${b}</option>`; });
-        }
-
-        // Yağ Siyahısının Ekrana Verilməsi
-        function renderOils(brandFilter = 'All') {
-            const container = document.getElementById('oils-container');
-            if(!container) return;
-            container.innerHTML = '';
-            let db = getOils();
-            
-            db.forEach(oil => {
-                if (brandFilter !== 'All' && oil.brand !== brandFilter) return;
-                
-                container.innerHTML += `
-                    <div class="oil-card animate__animated animate__fadeInUp">
-                        <div>
-                            <h4 style="margin: 0; font-size: 15px; color: #fff;">${oil.brand} ${oil.name}</h4>
-                            <small style="color: #666;">Orijinal Mühərrik Yağı</small>
-                        </div>
-                        <div style="text-align: right;">
-                            <span style="color: #ff9f43; font-weight: 800; font-size: 16px;">${oil.price_1l} AZN</span>
-                            <div style="font-size: 10px; color: #555;">1 Litr</div>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        function filterBrand(brand) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active-btn');
-                if(btn.innerText === brand || (brand === 'All' && btn.innerText === 'Hamısı')) {
-                    btn.classList.add('active-btn');
-                }
-            });
-            renderOils(brand);
-        }
-
-        function renderAdminList() {
-            const listDiv = document.getElementById('admin-oils-list');
-            if(!listDiv) return;
-            listDiv.innerHTML = '';
-            let db = getOils();
-            db.forEach((oil, index) => {
-                listDiv.innerHTML += `
-                    <div style="background:#222; padding:10px; border-radius:8px; display:flex; justify-content:space-between; color:#fff; font-size:13px;">
-                        <span>${oil.brand} - ${oil.name} (${oil.price_1l} AZN)</span>
-                        <span onclick="deleteOil(${index})" style="color:#ff4d4d; cursor:pointer; font-weight:bold;">[Sil]</span>
-                    </div>
-                `;
-            });
-        }
-
-        function addNewOil() {
-            let brand = document.getElementById('new-brand').value;
-            let name = document.getElementById('new-name').value;
-            let p1 = document.getElementById('new-p1').value;
-            if(!name || !p1) return alert('Bütün xanalari doldurun!');
-            let db = getOils();
-            db.push({"brand": brand, "name": name, "price_1l": p1});
-            localStorage.setItem('oils_db', JSON.stringify(db));
-            document.getElementById('new-name').value = '';
-            document.getElementById('new-p1').value = '';
-            renderAdminList();
-            renderOils();
-            buildFilters();
-        }
-
-        function deleteOil(index) {
-            let db = getOils();
-            db.splice(index, 1);
-            localStorage.setItem('oils_db', JSON.stringify(db));
-            renderAdminList();
-            renderOils();
-            buildFilters();
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            buildFilters();
-            renderOils();
-        });
-    </script>
+var secretClickCount=0;
+function handleSecretClick(){secretClickCount++;if(secretClickCount>=5){secretClickCount=0;document.getElementById('admin-modal').style.display='flex';}}
+function closeAdmin(){document.getElementById('admin-modal').style.display='none';document.getElementById('auth-box').style.display='block';document.getElementById('control-box').style.display='none';document.getElementById('admin-pass').value='';}
+function verifyAdmin(){var pass=document.getElementById('admin-pass').value;if(pass==='173admin'){document.getElementById('auth-box').style.display='none';document.getElementById('control-box').style.display='block';populateAdminBrands();renderAdminOils();}else{alert('Şifrə yanlışdır!');}}
+function populateAdminBrands(){var sel=document.getElementById('new-brand');sel.innerHTML='';getBrands().forEach(function(b){var opt=document.createElement('option');opt.value=b;opt.textContent=b;sel.appendChild(opt);});}
+function addNewOil(){var brand=document.getElementById('new-brand').value,name=document.getElementById('new-name').value.trim(),price=document.getElementById('new-p1').value.trim();if(!name||!price){alert('Bütün sahələri doldurun!');return;}var newOil={brand:brand,name:name,price_1l:price,_custom:true,_id:Date.now().toString()};customOils.push(newOil);localStorage.setItem('customOils',JSON.stringify(customOils));document.getElementById('new-name').value='';document.getElementById('new-p1').value='';renderAdminOils();if(currentTab==='prices')renderPrices(currentBrand||brand);}
+function deleteCustomOil(id){customOils=customOils.filter(function(o){return o._id!==id;});localStorage.setItem('customOils',JSON.stringify(customOils));renderAdminOils();if(currentTab==='prices')renderPrices(currentBrand||'Castrol');}
+function renderAdminOils(){var list=document.getElementById('admin-oils-list');if(!list)return;list.innerHTML='';customOils.forEach(function(oil){var row=document.createElement('div');row.style.cssText='display:flex;justify-content:space-between;align-items:center;background:#1a1a1a;padding:10px 14px;border-radius:8px;';row.innerHTML='<span style="color:#ddd;font-size:13px;">'+oil.brand+' — '+oil.name+' — <b style="color:#ff9f43">'+oil.price_1l+' AZN</b></span><button onclick="deleteCustomOil(\''+oil._id+'\')" style="background:none;border:1px solid #ff4444;color:#ff4444;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:12px;font-family:\'Inter\',sans-serif;">Sil</button>';list.appendChild(row);});if(!customOils.length)list.innerHTML='<p style="color:#555;font-size:13px;text-align:center;">Əlavə edilmiş yağ yoxdur.</p>';}
+</script>
 </body>
 </html>
-EOF
