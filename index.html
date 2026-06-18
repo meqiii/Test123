@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>173 Yağlama | Premium Avto Bakım</title>
-    <!-- animate.css REMOVED — lazımsız yük azaldıldı, öz animasiyalarımız var -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- FIX #1: Bebas Neue display font əlavə edildi -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         /* ── RESET & BASE ── */
@@ -567,17 +565,14 @@
 
     <main id="main-content">
 
-        <!-- ══════════════ HOME TAB ══════════════ -->
         <div id="tab-home">
             <section class="hero">
-                <!-- FIX #1: Canvas particle animasiyası -->
                 <canvas id="hero-canvas"></canvas>
                 <div class="hero-grid"></div>
 
                 <div class="hero-content">
                     <div class="hero-eyebrow">Premium Avto Servis · Hövsan</div>
 
-                    <!-- FIX #1 & #2: Bebas Neue, böyük font -->
                     <h1>Mühərrikin Ömrünü<br><span>173 Yağlama</span><br>ilə Uzat</h1>
 
                     <p>Premium mühərrik yağları və sürətli avto-baxım vitrini. Avtomobilinizə tətbiq rahatlığında rəqəmsal və peşəkar qulluq.</p>
@@ -586,7 +581,6 @@
                         <i class="fa-solid fa-calendar-check"></i> Sürətli Növbə Al
                     </a>
 
-                    <!-- FIX #3: Trust statistikalar hero-da -->
                     <div class="hero-stats">
                         <div class="hero-stat">
                             <div class="hero-stat-num">18<span>K+</span></div>
@@ -626,12 +620,10 @@
                 </div>
             </section>
 
-            <!-- FIX #3: Why Us genişləndirildi — stats box + 3 item -->
             <section class="why-us">
                 <div class="section-eyebrow">Niyə Biz?</div>
                 <h2 class="section-title">Fərqimiz <span>Saylarla</span></h2>
 
-                <!-- FIX #3: Statistika boxlar -->
                 <div class="stats-row">
                     <div class="stat-box">
                         <div class="stat-box-num">18K+</div>
@@ -671,13 +663,11 @@
             </section>
         </div>
 
-        <!-- ══════════════ SERVICES TAB ══════════════ -->
         <div id="tab-services" style="display: none;">
             <section class="services">
                 <div class="section-eyebrow">Nə Edirik?</div>
                 <h2 class="section-title">Xidmət <span>Vitrini</span></h2>
                 <div class="grid">
-                    <!-- FIX #5: Qiymət aralıqları kart üzərindədir -->
                     <div class="card">
                         <div class="card-icon"><i class="fa-solid fa-droplet"></i></div>
                         <h3>Premium Yağ Dəyişmə</h3>
@@ -700,14 +690,12 @@
             </section>
         </div>
 
-        <!-- ══════════════ PRICES TAB ══════════════ -->
         <div id="tab-prices" style="display: none;">
             <section class="prices-section">
                 <div class="section-eyebrow">Qiymət Kataloqu</div>
                 <h2 class="section-title">Yağlar və <span>Qiymətlər</span></h2>
                 <p style="text-align: center; color: #666; font-size: 13px; margin-bottom: 25px;">Kataloqdan brendi seçərək 1 Litr üçün olan qiymətlərlə tanış olun.</p>
 
-                <!-- FIX #9: Scroll hint gradient wrapper -->
                 <div class="filter-scroll-wrap">
                     <div id="brand-filters-container"></div>
                 </div>
@@ -716,16 +704,13 @@
             </section>
         </div>
 
-        <!-- ══════════════ CONTACT TAB ══════════════ -->
         <div id="tab-contact" style="display: none;">
-            <!-- FIX #4: Xəritə + ətraflı əlaqə məlumatları -->
             <section class="contact">
                 <div class="section-eyebrow">Harada Biz?</div>
                 <h2 class="section-title">Ciddi İş,<br><span>Lüks Keyfiyyət</span></h2>
                 <p style="color:#777; margin-top:12px; font-size:15px;">Avtomobilinizi sıradan servislərə yox, Hövsandakı peşəkarlara etibar edin.</p>
 
                 <div class="contact-grid">
-                    <!-- Animated map -->
                     <div class="map-box">
                         <div class="map-bg"></div>
                         <div class="map-road-h"></div>
@@ -739,7 +724,6 @@
                         </a>
                     </div>
 
-                    <!-- Contact details -->
                     <div class="contact-detail-rows">
                         <div class="detail-row">
                             <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
@@ -764,12 +748,10 @@
                         </div>
                     </div>
 
-                    <!-- CTA buttons -->
                     <div class="contact-ctas">
                         <a href="tel:+994558325052" class="contact-btn btn-call">
                             <i class="fa-solid fa-phone"></i> Zəng Et
                         </a>
-                        <!-- FIX #4: WhatsApp button -->
                         <a href="https://wa.me/994558325052" target="_blank" class="contact-btn btn-wp">
                             <i class="fa-brands fa-whatsapp"></i> WhatsApp
                         </a>
@@ -780,7 +762,6 @@
 
     </main>
 
-    <!-- ══════════════ ADMIN MODAL (unchanged logic) ══════════════ -->
     <div id="admin-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10000; justify-content:center; align-items:center; padding:20px; box-sizing:border-box;">
         <div class="admin-inner">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
@@ -803,12 +784,10 @@
         </div>
     </div>
 
-    <!-- FIX #4: WhatsApp float button -->
     <a href="https://wa.me/994558325052" target="_blank" class="whatsapp-float" title="WhatsApp ilə yazın">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Bottom Nav -->
     <nav class="bottom-nav">
         <a id="btn-home"     class="bottom-nav-item active" onclick="switchTab('home')">    <i class="fa-solid fa-house"></i>Əsas</a>
         <a id="btn-services" class="bottom-nav-item"        onclick="switchTab('services')"><i class="fa-solid fa-layer-group"></i>Xidmətlər</a>
@@ -816,7 +795,6 @@
         <a id="btn-contact"  class="bottom-nav-item"        onclick="switchTab('contact')"> <i class="fa-solid fa-address-book"></i>Əlaqə</a>
     </nav>
 
-    <!-- FIX #7: Upgraded footer -->
     <footer>
         <div class="footer-inner">
             <div>
@@ -849,8 +827,7 @@
         </div>
     </footer>
 
-    <script>
-    /* ══════════════════════════════════════════════
+    <script>    /* ══════════════════════════════════════════════
        FIX #1: CANVAS PARTICLE ANIMATION
     ══════════════════════════════════════════════ */
     (function(){
@@ -920,7 +897,7 @@
     observeRevealable();
 
     /* ══════════════════════════════════════════════
-       OIL DATA (original + full)
+       OIL DATA (Yenilənmiş Tam Siyahı)
     ══════════════════════════════════════════════ */
     var fullOilsList = [
         {"brand":"Castrol","name":"5W-30 C3","price_1l":"22"},
@@ -929,6 +906,184 @@
         {"brand":"Castrol","name":"5W-40 GTX","price_1l":"17.5"},
         {"brand":"Castrol","name":"10W-40","price_1l":"14"},
         {"brand":"Castrol","name":"5W-30 GTX","price_1l":"17.5"},
+        {"brand":"B.P","name":"5W-30","price_1l":"15"},
+        {"brand":"B.P","name":"5W-40","price_1l":"15"},
+        {"brand":"B.P","name":"10W-40","price_1l":"10"},
+        {"brand":"Enos","name":"0W-20","price_1l":"20"},
+        {"brand":"Enos","name":"5W-20","price_1l":"20"},
+        {"brand":"Enos","name":"5W-30 Sarı","price_1l":"17.5"},
+        {"brand":"Enos","name":"5W-30 Qırmızı","price_1l":"15"},
+        {"brand":"Enos","name":"5W-40 Sarı","price_1l":"17.5"},
+        {"brand":"Evrol","name":"0W-20","price_1l":"16"},
+        {"brand":"Evrol","name":"5W-20","price_1l":"16"},
+        {"brand":"Evrol","name":"5W-30 Dexos 1","price_1l":"15.8"},
+        {"brand":"Evrol","name":"5W-30 Dexos 2","price_1l":"17.2"},
+        {"brand":"Evrol","name":"5W-30 Super","price_1l":"14.6"},
+        {"brand":"Evrol","name":"5W-30 0720","price_1l":"19.6"},
+        {"brand":"Evrol","name":"5W-40 Super","price_1l":"14"},
+        {"brand":"Evrol","name":"5W-40 T. Dizel","price_1l":"19.8"},
+        {"brand":"Evrol","name":"10W-40","price_1l":"12"},
+        {"brand":"Evrol","name":"ATF 1","price_1l":"17"},
+        {"brand":"Evrol","name":"ATF 7","price_1l":"14"},
+        {"brand":"Evrol","name":"ATF 6","price_1l":"18"},
+        {"brand":"Evrol","name":"ATF 74","price_1l":"18"},
+        {"brand":"Evrol","name":"ATF III","price_1l":"12"},
+        {"brand":"Liqui Moly","name":"5W-30 AA","price_1l":"28.6"},
+        {"brand":"Liqui Moly","name":"0W-20 AA","price_1l":"28.8"},
+        {"brand":"Liqui Moly","name":"5W-30 C3","price_1l":"27.2"},
+        {"brand":"Liqui Moly","name":"5W-30 Dex 1","price_1l":"29.4"},
+        {"brand":"Liqui Moly","name":"5W-30 Molygen","price_1l":"26"},
+        {"brand":"Liqui Moly","name":"5W-40 4100","price_1l":"29.8"},
+        {"brand":"Liqui Moly","name":"5W-40 Molygen","price_1l":"25"},
+        {"brand":"Liqui Moly","name":"10W-40 DIESEL","price_1l":"20.8"},
+        {"brand":"Mobil","name":"5W-30","price_1l":"22"},
+        {"brand":"Mobil","name":"5W-30 C3","price_1l":"20"},
+        {"brand":"Mobil","name":"5W-40","price_1l":"20"},
+        {"brand":"Mobil","name":"10W-40","price_1l":"16"},
+        {"brand":"Petrol Kanada","name":"0W-20","price_1l":"24"},
+        {"brand":"Petrol Kanada","name":"5W-20","price_1l":"24"},
+        {"brand":"Petrol Kanada","name":"5W-30","price_1l":"19.6"},
+        {"brand":"Petrol Kanada","name":"5W-40","price_1l":"18"},
+        {"brand":"Petrol Kanada","name":"10W-40","price_1l":"15"},
+        {"brand":"Petrol Kanada","name":"ATF III","price_1l":"15"},
+        {"brand":"Petrol Kanada","name":"ATF Multi","price_1l":"17"},
+        {"brand":"Petrol Kanada","name":"5W-30 Dex 1","price_1l":"27"},
+        {"brand":"Alpine","name":"0W-20","price_1l":"19.6"},
+        {"brand":"Alpine","name":"0W-30","price_1l":"23"},
+        {"brand":"Alpine","name":"5W-20","price_1l":"19.6"},
+        {"brand":"Alpine","name":"5W-30 DX1","price_1l":"19.6"},
+        {"brand":"Alpine","name":"5W-30 LA","price_1l":"19.6"},
+        {"brand":"Alpine","name":"5W-30 T.S","price_1l":"15.4"},
+        {"brand":"Alpine","name":"5W-40 Eco","price_1l":"16.2"},
+        {"brand":"Alpine","name":"5W-40 RSL","price_1l":"18.8"},
+        {"brand":"Alpine","name":"10W-40 TS","price_1l":"13.8"},
+        {"brand":"Alpine","name":"10W-60 TS","price_1l":"19.6"},
+        {"brand":"Alpine","name":"ATF MB","price_1l":"20.8"},
+        {"brand":"Alpine","name":"ATF MVS","price_1l":"21.8"},
+        {"brand":"Alpine","name":"ATF III","price_1l":"16.2"},
+        {"brand":"Alpine","name":"ATF VI","price_1l":"21.8"},
+        {"brand":"Avista","name":"5W-30 C3","price_1l":"18"},
+        {"brand":"Avista","name":"5W-30 GER","price_1l":"16"},
+        {"brand":"Avista","name":"5W-40 GER","price_1l":"16"},
+        {"brand":"Avista","name":"5W-40 B","price_1l":"14"},
+        {"brand":"Avista","name":"10W-40","price_1l":"11"},
+        {"brand":"Avista","name":"10W-40 B1","price_1l":"12"},
+        {"brand":"Avista","name":"15W-40","price_1l":"11"},
+        {"brand":"Fosser","name":"0W-20","price_1l":"27"},
+        {"brand":"Fosser","name":"5W-30 Dexos 1","price_1l":"20"},
+        {"brand":"Fosser","name":"5W-30 Multy","price_1l":"19"},
+        {"brand":"Fosser","name":"5W-30 Long III","price_1l":"19"},
+        {"brand":"Fosser","name":"5W-40 Premium","price_1l":"18"},
+        {"brand":"Fosser","name":"5W-40 LA","price_1l":"20"},
+        {"brand":"Fosser","name":"10W-40","price_1l":"13"},
+        {"brand":"Fosser","name":"15W-40 Diesel","price_1l":"12"},
+        {"brand":"Fosser","name":"15W-40 Garant","price_1l":"12"},
+        {"brand":"Fosser","name":"ATF III","price_1l":"14"},
+        {"brand":"Fosser","name":"ATF VI","price_1l":"20"},
+        {"brand":"Fosser","name":"0W-16","price_1l":"22"},
+        {"brand":"MEGUIN","name":"5W-30 Spezial","price_1l":"21"},
+        {"brand":"MEGUIN","name":"5W-30 Quality","price_1l":"21"},
+        {"brand":"MEGUIN","name":"5W-30 EFFI","price_1l":"23"},
+        {"brand":"MEGUIN","name":"5W-30 Mobility","price_1l":"21"},
+        {"brand":"MEGUIN","name":"5W-30 New G","price_1l":"21"},
+        {"brand":"MEGUIN","name":"5W-40 HIGH","price_1l":"22"},
+        {"brand":"MEGUIN","name":"5W-40 Low Em","price_1l":"22"},
+        {"brand":"MEGUIN","name":"10W-40 Super","price_1l":"18"},
+        {"brand":"MEGUIN","name":"10W-40 Diesel","price_1l":"17"},
+        {"brand":"PENNOL","name":"0W-20","price_1l":"20"},
+        {"brand":"PENNOL","name":"5W-30 C3","price_1l":"17"},
+        {"brand":"PENNOL","name":"5W-30 MS","price_1l":"16"},
+        {"brand":"PENNOL","name":"5W-40 C3","price_1l":"17"},
+        {"brand":"PENNOL","name":"5W-40 SN/CF","price_1l":"16"},
+        {"brand":"PENNOL","name":"10W-40","price_1l":"13"},
+        {"brand":"PENNOL","name":"15W-40","price_1l":"10"},
+        {"brand":"PENNOL","name":"ATF 75W-90","price_1l":"20"},
+        {"brand":"PENNOL","name":"ATF 80W-90","price_1l":"14"},
+        {"brand":"Champion","name":"5W-20","price_1l":"20"},
+        {"brand":"Champion","name":"0W-20","price_1l":"20"},
+        {"brand":"Champion","name":"5W-30 C3","price_1l":"18"},
+        {"brand":"Champion","name":"5W-30 D1","price_1l":"18"},
+        {"brand":"Champion","name":"5W-30 Sadə","price_1l":"17"},
+        {"brand":"Champion","name":"5W-40 C3","price_1l":"20"},
+        {"brand":"Champion","name":"5W-40 Sadə","price_1l":"17"},
+        {"brand":"Champion","name":"10W-40 B4","price_1l":"14"},
+        {"brand":"Champion","name":"10W-40 Diesel","price_1l":"14"},
+        {"brand":"Champion","name":"ATF Multy","price_1l":"20"},
+        {"brand":"Mannol","name":"5W-30 Energy","price_1l":"15"},
+        {"brand":"Mannol","name":"5W-40 ELIT","price_1l":"15"},
+        {"brand":"Mannol","name":"10W-40 Classic","price_1l":"11"},
+        {"brand":"Mannol","name":"10W-40 Dizel","price_1l":"11"},
+        {"brand":"Mannol","name":"15W-40 B","price_1l":"8"},
+        {"brand":"Mannol","name":"10W-40 B8","price_1l":"8"},
+        {"brand":"Mannol","name":"2 Takt","price_1l":"10"},
+        {"brand":"Mannol","name":"75W-80","price_1l":"21"},
+        {"brand":"Mannol","name":"75W-90","price_1l":"17"},
+        {"brand":"Mannol","name":"ATF VI","price_1l":"15"},
+        {"brand":"Kizz","name":"5W-30 Dexos 1","price_1l":"15"},
+        {"brand":"Kizz","name":"5W-30 SN Plus","price_1l":"15"},
+        {"brand":"Kizz","name":"5W-30 C3","price_1l":"18"},
+        {"brand":"Kizz","name":"5W-30 PAO C3","price_1l":"21"},
+        {"brand":"Kizz","name":"5W-40","price_1l":"15"},
+        {"brand":"Kizz","name":"10W-40","price_1l":"15"},
+        {"brand":"Kizz","name":"ATF III","price_1l":"15"},
+        {"brand":"Kizz","name":"ATF Multy","price_1l":"17"},
+        {"brand":"Kizz","name":"ATF VI","price_1l":"18"},
+        {"brand":"Kizz","name":"ATF CVT","price_1l":"20"},
+        {"brand":"Kizz","name":"5W-20","price_1l":"15"},
+        {"brand":"Kizz","name":"0W-20","price_1l":"16"},
+        {"brand":"Japan №1","name":"5W-30 C3","price_1l":"16"},
+        {"brand":"Japan №1","name":"5W-30","price_1l":"14"},
+        {"brand":"Japan №1","name":"5W-40","price_1l":"14"},
+        {"brand":"Japan №1","name":"10W-40","price_1l":"12"},
+        {"brand":"Japan №1","name":"ATF WS","price_1l":"17"},
+        {"brand":"Japan №1","name":"ATF Multi","price_1l":"17"},
+        {"brand":"Japan №1","name":"ATF III","price_1l":"14"},
+        {"brand":"Tothaci","name":"0W-20","price_1l":"18"},
+        {"brand":"Tothaci","name":"5W-20","price_1l":"18"},
+        {"brand":"Tothaci","name":"5W-30 C3","price_1l":"18"},
+        {"brand":"Tothaci","name":"5W-30","price_1l":"18"},
+        {"brand":"Tothaci","name":"5W-40","price_1l":"18"},
+        {"brand":"Tothaci","name":"10W-40","price_1l":"12"},
+        {"brand":"woil","name":"0W-20","price_1l":"12"},
+        {"brand":"woil","name":"5W-30","price_1l":"9"},
+        {"brand":"woil","name":"5W-40","price_1l":"9"},
+        {"brand":"woil","name":"5W-30 T.D","price_1l":"9"},
+        {"brand":"woil","name":"5W-40 T.D","price_1l":"9"},
+        {"brand":"woil","name":"10W-40","price_1l":"8"},
+        {"brand":"woil","name":"15W-40","price_1l":"7"},
+        {"brand":"woil","name":"ATF III","price_1l":"12"},
+        {"brand":"woil","name":"Koil 75W-90","price_1l":"12"},
+        {"brand":"woil","name":"Koil 80W-90","price_1l":"10"},
+        {"brand":"woil","name":"Koil 2 Takt","price_1l":"10"},
+        {"brand":"Cross","name":"5W-30","price_1l":"11"},
+        {"brand":"Cross","name":"5W-30 T.D","price_1l":"11"},
+        {"brand":"Cross","name":"5W-40","price_1l":"11"},
+        {"brand":"Cross","name":"5W-40 T.D","price_1l":"11"},
+        {"brand":"Cross","name":"10W-40","price_1l":"9"},
+        {"brand":"Cross","name":"10W-40 T.D","price_1l":"9"},
+        {"brand":"Cross","name":"ATF III","price_1l":"11"},
+        {"brand":"Cross","name":"Dexron VI","price_1l":"13"},
+        {"brand":"Texnol","name":"10W-40 Sil","price_1l":"7"},
+        {"brand":"Texnol","name":"10W-40 Gold","price_1l":"9"},
+        {"brand":"Texnol","name":"5W-30","price_1l":"11"},
+        {"brand":"Texnol","name":"5W-40","price_1l":"11"},
+        {"brand":"Texnol","name":"10W-40 Turbo","price_1l":"7"},
+        {"brand":"Texnol","name":"15W-40 Turbo","price_1l":"7"},
+        {"brand":"Texnol","name":"15W-40 Sil","price_1l":"7"},
+        {"brand":"Texnol","name":"15W-40 Bronz","price_1l":"5"},
+        {"brand":"Texnol","name":"20W-50 Bronz","price_1l":"5"},
+        {"brand":"Texnol","name":"15W-40 B","price_1l":"4"},
+        {"brand":"Texnol","name":"20W-50 B","price_1l":"4"},
+        {"brand":"Texnol","name":"Flush","price_1l":"5"},
+        {"brand":"Emka","name":"5W-30 C3","price_1l":"19"},
+        {"brand":"Emka","name":"5W-30 Dex 1","price_1l":"18"},
+        {"brand":"Emka","name":"5W-30 LL","price_1l":"17"},
+        {"brand":"Emka","name":"5W-40","price_1l":"18"},
+        {"brand":"Emka","name":"10W-40","price_1l":"14"},
+        {"brand":"Emka","name":"10W-40 B1","price_1l":"10"},
+        {"brand":"Emka","name":"5W-40 B1","price_1l":"12"},
+        {"brand":"Emka","name":"CVT","price_1l":"20"},
+        {"brand":"Emka","name":"ATF VI","price_1l":"20"},
         {"brand":"Shell","name":"5W-30 Ultra","price_1l":"24"},
         {"brand":"Shell","name":"5W-30 Ultra C3","price_1l":"25"},
         {"brand":"Shell","name":"5W-30 ECT","price_1l":"20"},
@@ -937,41 +1092,15 @@
         {"brand":"Shell","name":"5W-40 Ultra","price_1l":"24"},
         {"brand":"Shell","name":"10W-40 HX5","price_1l":"15"},
         {"brand":"Shell","name":"10W-40 HX7","price_1l":"18"},
-        {"brand":"Liqui Moly","name":"5W-30 AA","price_1l":"28.6"},
-        {"brand":"Liqui Moly","name":"0W-20 AA","price_1l":"28.8"},
-        {"brand":"Liqui Moly","name":"5W-30 C3","price_1l":"27.2"},
-        {"brand":"Liqui Moly","name":"5W-30 Dex1","price_1l":"29.4"},
-        {"brand":"Liqui Moly","name":"5W-30 HC7","price_1l":"26"},
-        {"brand":"Liqui Moly","name":"5W-40 HC7","price_1l":"25"},
-        {"brand":"Liqui Moly","name":"5W-40 4100","price_1l":"29.8"},
-        {"brand":"Liqui Moly","name":"10W-40 Nach","price_1l":"20.8"},
-        {"brand":"Meguin","name":"5W-30 Spesial","price_1l":"29"},
-        {"brand":"Meguin","name":"5W-30 Quality","price_1l":"21"},
-        {"brand":"Meguin","name":"5W-30 EFFI","price_1l":"23"},
-        {"brand":"Meguin","name":"5W-30 Mobility","price_1l":"24"},
-        {"brand":"Meguin","name":"5W-30 New G","price_1l":"21"},
-        {"brand":"Meguin","name":"5W-40 High","price_1l":"22"},
-        {"brand":"Meguin","name":"5W-40 Ultra Long","price_1l":"20"},
-        {"brand":"Meguin","name":"5W-40 Low Em","price_1l":"22"},
-        {"brand":"Meguin","name":"10W-40 Super","price_1l":"18"},
-        {"brand":"Meguin","name":"10W-40 Diesel","price_1l":"17"},
-        {"brand":"Japan","name":"5W-30 C3","price_1l":"16"},
-        {"brand":"Japan","name":"5W-30","price_1l":"14"},
-        {"brand":"Japan","name":"5W-40","price_1l":"14"},
-        {"brand":"Japan","name":"10W-40","price_1l":"12"},
-        {"brand":"Japan","name":"5W-20","price_1l":"15"},
-        {"brand":"Japan","name":"0W-20","price_1l":"15"},
-        {"brand":"Japan","name":"0W-16","price_1l":"17"},
-        {"brand":"Japan","name":"ATF WS","price_1l":"17"},
-        {"brand":"Japan","name":"ATF Multi","price_1l":"17"},
-        {"brand":"Japan","name":"ATF III","price_1l":"14"},
-        {"brand":"Japan","name":"CVT NS2","price_1l":"17"},
-        {"brand":"Japan","name":"CVT NS3","price_1l":"18"},
-        {"brand":"Japan","name":"Gear 75W-90","price_1l":"15"},
-        {"brand":"Alpin","name":"5W-30 C3","price_1l":"18"},
-        {"brand":"Alpin","name":"5W-40","price_1l":"17"},
-        {"brand":"Alpin","name":"10W-40","price_1l":"13"},
-        {"brand":"Alpin","name":"5W-30","price_1l":"16"}
+        {"brand":"Monza","name":"5W-30 LA","price_1l":"19.6"},
+        {"brand":"Monza","name":"5W-40 GTI LA","price_1l":"18.8"},
+        {"brand":"Monza","name":"5W-40 GTI","price_1l":"16.2"},
+        {"brand":"Monza","name":"10W-40","price_1l":"13.8"},
+        {"brand":"Monza","name":"ATF Multy","price_1l":"17"},
+        {"brand":"Monza","name":"ATF VI","price_1l":"18"},
+        {"brand":"Monza","name":"ATF CVT","price_1l":"20"},
+        {"brand":"Monza","name":"5W-20","price_1l":"15"},
+        {"brand":"Monza","name":"0W-20","price_1l":"16"}
     ];
 
     /* ══════════════════════════════════════════════
