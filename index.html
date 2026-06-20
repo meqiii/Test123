@@ -98,7 +98,7 @@
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             /* FIX #1: Unsplash fallback — gradient əsas, şəkil ikinci plan */
             background: linear-gradient(135deg, #0d0d0d 0%, #1a1200 50%, #0d0d0d 100%);
-        }
+}
         /* Canvas particle layer */
         #hero-canvas {
             position: absolute; inset: 0; z-index: 0; pointer-events: none;
@@ -198,7 +198,7 @@
         }
         .slider-track { display: flex; width: calc(180px * 12); animation: scroll 20s linear infinite; align-items: center; }
         .slide { width: 180px; flex-shrink: 0; text-align: center; font-weight: 800; font-size: 15px; color: #fff; opacity: 0.4; transition: 0.3s; letter-spacing: 1px; }
-        .slide:hover { opacity: 1; color: #ff9f43; }
+.slide:hover { opacity: 1; color: #ff9f43; }
         @keyframes scroll {
             0%   { transform: translateX(0); }
             100% { transform: translateX(calc(-180px * 6)); }
@@ -297,8 +297,7 @@
             scrollbar-width: thin;
             scrollbar-color: #333 transparent;
             -webkit-overflow-scrolling: touch;
-        }
-        #brand-filters-container::-webkit-scrollbar { height: 3px; }
+        }#brand-filters-container::-webkit-scrollbar { height: 3px; }
         #brand-filters-container::-webkit-scrollbar-track { background: transparent; }
         #brand-filters-container::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
 
@@ -397,8 +396,7 @@
         /* Animated fake map */
         .map-box {
             background: #111;
-            border-radius: 16px;
-            overflow: hidden;
+            border-radius: 16px;overflow: hidden;
             height: 220px;
             position: relative;
             border: 1px solid #1f1f1f;
@@ -497,8 +495,7 @@
             padding: 36px 20px 24px;
             margin-bottom: 0;
         }
-        .footer-inner {
-            max-width: 900px; margin: 0 auto;
+        .footer-inner {max-width: 900px; margin: 0 auto;
             display: flex; flex-wrap: wrap;
             justify-content: space-between; align-items: flex-start;
             gap: 28px; margin-bottom: 28px;
@@ -552,15 +549,161 @@
             .stats-row { gap: 12px; }
             .stat-box { min-width: 130px; }
         }
+
+        /* ════════════════════════════════════════
+           SPLASH / GİRİŞ EKRANı
+        ════════════════════════════════════════ */
+        #splash {
+            position: fixed; inset: 0; z-index: 99999;
+            background: #0d0d0d;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            transition: opacity 0.7s ease, visibility 0.7s ease;
+        }
+        #splash.hidden { opacity: 0; visibility: hidden; }
+
+        .splash-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 52px; letter-spacing: 6px;
+            color: #fff; margin-bottom: 6px;
+        }
+        .splash-logo span { color: #ff9f43; }
+        .splash-sub {
+            font-size: 11px; font-weight: 600;
+            letter-spacing: 4px; text-transform: uppercase;
+            color: #555; margin-bottom: 48px;
+        }
+
+        /* Maşın yükləmə animasiyası */
+        .splash-car-wrap {
+            position: relative; width: 220px; height: 80px;
+            margin-bottom: 36px;
+        }
+        .splash-car {
+            position: absolute; left: -60px;
+            animation: car-drive 1.6s cubic-bezier(0.4,0,0.2,1) forwards;
+        }
+        @keyframes car-drive {
+            0%   { left: -60px; opacity: 0; }
+            15%  { opacity: 1; }
+            85%  { opacity: 1; }
+            100% { left: 240px; opacity: 0; }
+        }
+        .splash-road {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff9f43 30%, #ff7f11 70%, transparent);
+        }
+        .splash-road-dashes {position: absolute; bottom: 6px; left: 0; right: 0;
+            height: 2px; overflow: hidden;
+        }
+        .splash-road-dashes::before {
+            content: '';
+            position: absolute; top: 0; left: -100%;
+            width: 300%;
+            background: repeating-linear-gradient(90deg,
+                transparent 0px, transparent 20px,
+                rgba(255,159,67,0.3) 20px, rgba(255,159,67,0.3) 40px
+            );
+            height: 2px;
+            animation: road-scroll 0.6s linear infinite;
+        }
+        @keyframes road-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(40px); }
+        }
+
+        /* Progress bar */
+        .splash-progress {
+            width: 220px; height: 2px;
+            background: #1a1a1a; border-radius: 2px; overflow: hidden;
+        }
+        .splash-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ff9f43, #ff7f11);
+            animation: progress-fill 1.8s ease forwards;
+            width: 0;
+        }
+        @keyframes progress-fill {
+            0%   { width: 0%; }
+            60%  { width: 70%; }
+            100% { width: 100%; }
+        }
+        .splash-label {
+            font-size: 11px; font-weight: 600;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: #333; margin-top: 14px;
+            animation: blink-text 1s ease infinite alternate;
+        }
+        @keyframes blink-text {
+            from { color: #333; }
+            to   { color: #666; }
+        }
+
+        /* ════════════════════════════════════════
+           HERO MAŞIN SVG
+        ════════════════════════════════════════ */
+        .hero-car-svg {
+            position: absolute;
+            bottom: 0; right: -60px;
+            z-index: 2;
+            width: min(55%, 520px);
+            opacity: 0;
+            transform: translateX(80px);
+            animation: car-slide-in 1.2s 2.4s cubic-bezier(0.22,1,0.36,1) forwards;
+            pointer-events: none;
+        }
+        @keyframes car-slide-in {
+            from { opacity: 0; transform: translateX(80px); }
+            to   { opacity: 0.13; transform: translateX(0); }
+        }
+
+        /* ════════════════════════════════════════
+           BADGE GENİŞLƏNDİRMƏ — yeni brendlər
+        ════════════════════════════════════════ */
+        .badge-mid {
+            font-size: 10px; font-weight: 700;
+            background: #001a2a; color: #5bc8e8;
+            border: 1px solid #004a6a;
+            padding: 2px 8px; border-radius: 6px;
+            margin-left: 8px; letter-spacing: 1px;
+        }
+        .badge-budget {
+            font-size: 10px; font-weight: 700;
+            background: #1a1a1a; color: #888;
+            border: 1px solid #333;
+            padding: 2px 8px; border-radius: 6px;
+            margin-left: 8px; letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
-    <!-- Giriş (Hero) Hissəsi - 22063.jpg ilə Şəffaf və Peşəkar -->
-    
-
-    <!-- Premium Qalereya Hissəsi - 22062.jpg ilə Peşəkar Görünüş -->
-    
-
+    <!-- ══ SPLASH GİRİŞ EKRANı ══ -->
+    <div id="splash">
+        <div class="splash-logo">173 <span>YAĞLAMA</span></div>
+        <div class="splash-sub">Premium Avto Servis · Hövsan</div>
+        <div class="splash-car-wrap">
+            <div class="splash-road-dashes"></div>
+            <div class="splash-road"></div>
+            <div class="splash-car">
+                <svg width="90" height="46" viewBox="0 0 90 46" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="20" width="74" height="18" rx="4" fill="#1e1e1e"/>
+                    <path d="M18 20 L26 6 L62 6 L72 20Z" fill="#252525"/>
+                    <rect x="4" y="30" width="82" height="10" rx="3" fill="#1a1a1a"/>
+                    <rect x="28" y="9" width="14" height="10" rx="2" fill="#ff9f43" opacity="0.25"/>
+                    <rect x="45" y="9" width="14" height="10" rx="2" fill="#ff9f43" opacity="0.25"/>
+                    <rect x="74" y="24" width="8" height="5" rx="2" fill="#ff9f43"/>
+                    <rect x="6" y="24" width="6" height="5" rx="2" fill="#ff4444" opacity="0.7"/>
+                    <circle cx="22" cy="38" r="7" fill="#111" stroke="#333" stroke-width="2"/>
+                    <circle cx="22" cy="38" r="3" fill="#ff9f43" opacity="0.5"/>
+                    <circle cx="66" cy="38" r="7" fill="#111" stroke="#333" stroke-width="2"/>
+                    <circle cx="66" cy="38" r="3" fill="#ff9f43" opacity="0.5"/>
+                    <rect x="8" y="26" width="74" height="2" rx="1" fill="#ff9f43" opacity="0.4"/>
+                </svg>
+            </div>
+        </div>
+        <div class="splash-progress"><div class="splash-progress-bar"></div></div>
+        <div class="splash-label">Yüklənir...</div>
+    </div>
 
     <header>
         <div class="nav-container">
@@ -575,6 +718,35 @@
             <section class="hero">
                 <canvas id="hero-canvas"></canvas>
                 <div class="hero-grid"></div>
+
+                <!-- Hero maşın SVG -->
+                <svg class="hero-car-svg" viewBox="0 0 600 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="40" y="110" width="520" height="80" rx="18" fill="#1a1a1a"/>
+                    <path d="M80 110 L140 40 L420 40 L500 110Z" fill="#141414"/>
+                    <rect x="20" y="155" width="560" height="45" rx="14" fill="#111"/>
+                    <rect x="150" y="48" width="90" height="55" rx="6" fill="#ff9f43" opacity="0.12"/>
+                    <rect x="255" y="48" width="90" height="55" rx="6" fill="#ff9f43" opacity="0.12"/>
+                    <rect x="360" y="48" width="60" height="55" rx="6" fill="#ff9f43" opacity="0.08"/>
+                    <line x1="245" y1="48" x2="245" y2="103" stroke="#222" stroke-width="3"/>
+                    <line x1="350" y1="48" x2="350" y2="103" stroke="#222" stroke-width="3"/>
+                    <rect x="510" y="120" width="46" height="22" rx="8" fill="#ff9f43" opacity="0.9"/>
+                    <ellipse cx="565" cy="131" rx="44" ry="14" fill="#ff9f43" opacity="0.05"/>
+                    <rect x="24" y="120" width="36" height="22" rx="8" fill="#cc2222" opacity="0.8"/>
+                    <rect x="40" y="138" width="520" height="4" rx="2" fill="#ff9f43" opacity="0.35"/>
+                    <circle cx="130" cy="188" r="32" fill="#0d0d0d" stroke="#2a2a2a" stroke-width="4"/>
+                    <circle cx="130" cy="188" r="18" fill="#141414" stroke="#333" stroke-width="2"/>
+                    <circle cx="130" cy="188" r="6" fill="#ff9f43" opacity="0.6"/>
+                    <circle cx="460" cy="188" r="32" fill="#0d0d0d" stroke="#2a2a2a" stroke-width="4"/>
+                    <circle cx="460" cy="188" r="18" fill="#141414" stroke="#333" stroke-width="2"/>
+                    <circle cx="460" cy="188" r="6" fill="#ff9f43" opacity="0.6"/>
+                    <line x1="130" y1="170" x2="130" y2="206" stroke="#ff9f43" stroke-width="2" opacity="0.4"/>
+                    <line x1="112" y1="188" x2="148" y2="188" stroke="#ff9f43" stroke-width="2" opacity="0.4"/>
+                    <line x1="460" y1="170" x2="460" y2="206" stroke="#ff9f43" stroke-width="2" opacity="0.4"/>
+                    <line x1="442" y1="188" x2="478" y2="188" stroke="#ff9f43" stroke-width="2" opacity="0.4"/>
+                    <line x1="295" y1="110" x2="295" y2="190" stroke="#222" stroke-width="2"/>
+                    <rect x="320" y="145" width="28" height="6" rx="3" fill="#2a2a2a"/>
+                    <rect x="175" y="145" width="28" height="6" rx="3" fill="#2a2a2a"/>
+                </svg>
 
                 <div class="hero-content">
                     <div class="hero-eyebrow">Premium Avto Servis · Hövsan</div>
@@ -613,8 +785,7 @@
                         <div class="slide">LIQUI MOLY</div>
                         <div class="slide">SHELL</div>
                         <div class="slide">MEGUIN</div>
-                        <div class="slide">CASTROL</div>
-                        <div class="slide">MOBIL 1</div>
+                        <div class="slide">CASTROL</div><div class="slide">MOBIL 1</div>
                         <div class="slide">ALPIN</div>
                         <div class="slide">LIQUI MOLY</div>
                         <div class="slide">SHELL</div>
@@ -713,8 +884,7 @@
         <div id="tab-contact" style="display: none;">
             <section class="contact">
                 <div class="section-eyebrow">Harada Biz?</div>
-                <h2 class="section-title">Ciddi İş,<br><span>Lüks Keyfiyyət</span></h2>
-                <p style="color:#777; margin-top:12px; font-size:15px;">Avtomobilinizi sıradan servislərə yox, Hövsandakı peşəkarlara etibar edin.</p>
+                <h2 class="section-title">Ciddi İş,<br><span>Lüks Keyfiyyət</span></h2><p style="color:#777; margin-top:12px; font-size:15px;">Avtomobilinizi sıradan servislərə yox, Hövsandakı peşəkarlara etibar edin.</p>
 
                 <div class="contact-grid">
                     <div class="map-box">
@@ -813,8 +983,7 @@
                 </div>
             </div>
             <div class="footer-links">
-                <div class="footer-links-title">Naviqasiya</div>
-                <a onclick="switchTab('home')">Əsas Səhifə</a>
+                <div class="footer-links-title">Naviqasiya</div><a onclick="switchTab('home')">Əsas Səhifə</a>
                 <a onclick="switchTab('services')">Xidmətlər</a>
                 <a onclick="switchTab('prices')">Qiymətlər</a>
                 <a onclick="switchTab('contact')">Əlaqə</a>
@@ -913,8 +1082,7 @@
         {"brand":"Castrol","name":"10W-40","price_1l":"14"},
         {"brand":"Castrol","name":"5W-30 GTX","price_1l":"17.5"},
         {"brand":"B.P","name":"5W-30","price_1l":"15"},
-        {"brand":"B.P","name":"5W-40","price_1l":"15"},
-        {"brand":"B.P","name":"10W-40","price_1l":"10"},
+        {"brand":"B.P","name":"5W-40","price_1l":"15"},{"brand":"B.P","name":"10W-40","price_1l":"10"},
         {"brand":"Enos","name":"0W-20","price_1l":"20"},
         {"brand":"Enos","name":"5W-20","price_1l":"20"},
         {"brand":"Enos","name":"5W-30 Sarı","price_1l":"17.5"},
@@ -1013,8 +1181,7 @@
         {"brand":"Champion","name":"5W-40 C3","price_1l":"20"},
         {"brand":"Champion","name":"5W-40 Sadə","price_1l":"17"},
         {"brand":"Champion","name":"10W-40 B4","price_1l":"14"},
-        {"brand":"Champion","name":"10W-40 Diesel","price_1l":"14"},
-        {"brand":"Champion","name":"ATF Multy","price_1l":"20"},
+        {"brand":"Champion","name":"10W-40 Diesel","price_1l":"14"},{"brand":"Champion","name":"ATF Multy","price_1l":"20"},
         {"brand":"Mannol","name":"5W-30 Energy","price_1l":"15"},
         {"brand":"Mannol","name":"5W-40 ELIT","price_1l":"15"},
         {"brand":"Mannol","name":"10W-40 Classic","price_1l":"11"},
@@ -1113,9 +1280,7 @@
        TAB SWITCHING
     ══════════════════════════════════════════════ */
     var tabs = ['home','services','prices','contact'];
-    var currentTab = 'home';
-
-    function switchTab(tab){
+    var currentTab = 'home';function switchTab(tab){
         tabs.forEach(function(t){
             document.getElementById('tab-' + t).style.display = (t === tab) ? 'block' : 'none';
             var btn = document.getElementById('btn-' + t);
@@ -1145,13 +1310,17 @@
         return brands;
     }
 
-    // FIX: Japan = ekonom badge, Liqui Moly = premium badge
-    var premiumBrands = ['Liqui Moly','Shell','Mobil 1','Meguin'];
-    var ekonomBrands  = ['Japan','Alpin'];
+    // Badge sistemi — 4 səviyyə
+    var premiumBrands = ['Liqui Moly','Shell','Castrol','Meguin','Mobil','Fosser'];
+    var midBrands     = ['Alpine','Petrol Kanada','Avista','Champion','Emka','Pennol','Monza','Kizz','Enos','Evrol','B.P'];
+    var ekonomBrands  = ['Japan №1','Alpin','Mannol','Tothaci'];
+    var budgetBrands  = ['Woil','Cross','Texnol'];
 
     function getBadge(brand){
         if(premiumBrands.indexOf(brand) !== -1) return '<span class="badge-premium">PREMIUM</span>';
+        if(midBrands.indexOf(brand)     !== -1) return '<span class="badge-mid">ORTA</span>';
         if(ekonomBrands.indexOf(brand)  !== -1) return '<span class="badge-ekonom">EKONOM</span>';
+        if(budgetBrands.indexOf(brand)  !== -1) return '<span class="badge-budget">BÜDCƏ</span>';
         return '';
     }
 
@@ -1209,8 +1378,7 @@
         document.getElementById('control-box').style.display = 'none';
         document.getElementById('admin-pass').value = '';
     }
-    function verifyAdmin(){
-        var pass = document.getElementById('admin-pass').value;
+    function verifyAdmin(){var pass = document.getElementById('admin-pass').value;
         if(pass === '173admin'){
             document.getElementById('auth-box').style.display = 'none';
             document.getElementById('control-box').style.display = 'block';
@@ -1262,6 +1430,20 @@
         });
         if(!customOils.length) list.innerHTML = '<p style="color:#555;font-size:13px;text-align:center;">Əlavə edilmiş yağ yoxdur.</p>';
     }
+
+    /* ══════════════════════════════════════════════
+       SPLASH EKRANı — giriş animasiyası
+    ══════════════════════════════════════════════ */
+    (function(){
+        var splash = document.getElementById('splash');
+        if(!splash) return;
+        // 2.2 saniyə sonra splash gizlən
+        setTimeout(function(){
+            splash.classList.add('hidden');
+            // tam gizlendikten sonra DOM-dan çıxar
+            setTimeout(function(){ splash.style.display = 'none'; }, 750);
+        }, 2200);
+    })();
     </script>
 </body>
 </html>
